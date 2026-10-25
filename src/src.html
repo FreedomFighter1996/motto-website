@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Motto · All-day breakfast on Queen West, Toronto</title>
+<meta name="description" content="All-day breakfast café at 764 Queen St W, near Trinity Bellwoods. Pistachio pancakes, cold-pressed juice, matcha and Turkish tea. Book a table or drop in.">
+<meta name="theme-color" content="#3F4A41">
+<link rel="icon" type="image/svg+xml" href="{{FAVSVG}}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{FAVPNG:32}}">
+<link rel="apple-touch-icon" href="{{FAVPNG:180}}">
+<style>
+@font-face{font-family:"Motto Serif";src:url({{FONT:motto-serif-pagella-regular.woff2}}) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Motto Serif";src:url({{FONT:motto-serif-pagella-italic.woff2}}) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Motto Sans";src:url({{FONT:motto-sans-josefin-variable.woff2}}) format("woff2");font-weight:100 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Motto Sans";src:url({{FONT:motto-sans-josefin-italic-variable.woff2}}) format("woff2");font-weight:100 700;font-style:italic;font-display:swap}
+:root{
+  --sage:#67796A;--deep:#3F4A41;--sage6:#5C6A5E;--awning:#B9C5AC;--mist:#E6EBE0;--white:#F7F3EE;--plate:#FFFFFF;--ink:#1F231F;--caramel:#A67C52;--oak:#D9B98A;
+  --muted:#5E655E;--line:rgba(63,74,65,.16);
+  --serif:"Motto Serif",Georgia,serif;--sans:"Motto Sans","Helvetica Neue",Arial,sans-serif;
+  --wrap:1200px;--gut:clamp(16px,4vw,40px);--r:14px;
+  --hdr:72px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hdr) + 8px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;line-height:1.08;margin:0}
+h2{font-size:clamp(2.1rem,4.4vw,3.4rem)}
+h3{font-size:1.5rem}
+p{margin:0}
+.kicker{font-size:.95rem;font-weight:600;color:var(--caramel);margin-bottom:12px}
+.lede{font-size:1.15rem;color:var(--muted);max-width:52ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;border-radius:999px;font-weight:600;font-size:1rem;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .15s,background .15s,color .15s,border-color .15s;white-space:nowrap}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--deep);color:var(--white)}
+.btn-primary:hover{background:var(--ink)}
+.btn-light{background:var(--white);color:var(--deep)}
+.btn-light:hover{background:var(--plate)}
+.btn-ghost{border-color:currentColor;background:transparent}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.btn-line{border-color:var(--deep);color:var(--deep);background:transparent}
+.btn-line:hover{background:var(--deep);color:var(--white)}
+.btn svg{width:20px;height:20px}
+:focus-visible{outline:3px solid var(--sage);outline-offset:3px;border-radius:6px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Header */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;height:var(--hdr);color:var(--white);transition:background .25s,color .25s,box-shadow .25s}
+.hdr.solid{background:rgba(247,243,238,.96);color:var(--deep);box-shadow:0 1px 0 var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.hdr .wrap{height:100%;display:flex;align-items:center;gap:24px;max-width:none}
+.brand{display:block;color:inherit;margin-right:auto}
+.brand svg{height:26px;width:auto;display:block}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;font-weight:500;font-size:1rem;padding:6px 0;border-bottom:2px solid transparent}
+.nav a:hover,.nav a.on{border-bottom-color:currentColor}
+.hdr .btn{min-height:44px;padding:0 20px;font-size:.95rem}
+.hdr:not(.solid) .btn-primary{background:var(--white);color:var(--deep)}
+.order{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-weight:500}
+.menu-btn{display:none;background:none;border:0;width:44px;height:44px;margin-right:-8px;cursor:pointer}
+.menu-btn span{display:block;width:22px;height:2px;background:currentColor;margin:5px auto;transition:transform .2s,opacity .2s}
+.hdr.open .menu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hdr.open .menu-btn span:nth-child(2){opacity:0}
+.hdr.open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.drawer{display:none}
+
+/* Hero */
+.hero{position:relative;min-height:min(100vh,900px);min-height:min(100svh,900px);display:flex;align-items:flex-end;color:var(--white);overflow:hidden;background:var(--deep)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,28,24,.55) 0,rgba(24,28,24,0) 160px),linear-gradient(90deg,rgba(24,28,24,.78) 0%,rgba(24,28,24,.5) 38%,rgba(24,28,24,0) 70%),linear-gradient(0deg,rgba(24,28,24,.55) 0%,rgba(24,28,24,0) 45%)}
+.hero .wrap{position:relative;z-index:1;width:100%;padding-top:140px;padding-bottom:clamp(48px,8vh,96px)}
+.hero h1{font-size:clamp(3rem,7.4vw,6.2rem);line-height:.98;max-width:12ch}
+.hero .sub{font-size:clamp(1.1rem,1.6vw,1.3rem);margin-top:22px;max-width:30ch;opacity:.95}
+.hero .ctas{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.hero .facts{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:34px;font-size:.98rem}
+.hero .facts span{display:inline-flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:#9FD39A;box-shadow:0 0 0 4px rgba(159,211,154,.25)}
+.dot.closed{background:#E3A08C;box-shadow:0 0 0 4px rgba(227,160,140,.25)}
+.stars{color:#E9C88F;letter-spacing:1px}
+
+/* Sections */
+section{position:relative}
+.sec{padding:clamp(72px,10vw,128px) 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+
+/* Motto cards */
+.mottos{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.mcard{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/4.2;color:var(--white);text-decoration:none;background:var(--deep);isolation:isolate}
+.mcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.mcard::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(24,28,24,.86) 0%,rgba(24,28,24,.25) 48%,rgba(24,28,24,0) 70%);z-index:0}
+.mcard:hover img{transform:scale(1.04)}
+.mcard .txt{position:absolute;left:0;right:0;bottom:0;padding:18px;z-index:1}
+.mcard small{display:block;font-size:.85rem;opacity:.85}
+.mcard strong{display:block;font-family:var(--serif);font-weight:400;font-size:1.7rem;line-height:1.05;margin:2px 0 10px}
+.mcard em{display:block;font-style:normal;font-size:.92rem;line-height:1.35;opacity:.92}
+.mcard .go{display:inline-flex;margin-top:12px;font-size:.9rem;font-weight:600;border-bottom:1.5px solid currentColor}
+
+/* Menu */
+.menu-sec{background:var(--plate)}
+.tools{display:flex;align-items:center;gap:14px}
+.toggle{display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-weight:500;user-select:none}
+.toggle input{appearance:none;width:44px;height:26px;border-radius:99px;background:var(--mist);position:relative;cursor:pointer;transition:background .2s;margin:0}
+.toggle input::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--plate);box-shadow:0 1px 3px rgba(0,0,0,.2);transition:transform .2s}
+.toggle input:checked{background:var(--sage)}
+.toggle input:checked::after{transform:translateX(18px)}
+.tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px 2px 14px;margin:0 -2px 22px;position:sticky;top:var(--hdr);z-index:5;background:var(--plate)}
+.tabs::-webkit-scrollbar{display:none}
+.tab{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 18px 0 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--plate);cursor:pointer;font-weight:600;font-size:.98rem;white-space:nowrap;color:var(--deep)}
+.tab svg{width:26px;height:26px;flex:none}
+.tab[aria-selected="true"]{background:var(--deep);border-color:var(--deep);color:var(--white)}
+.tab[aria-selected="true"] svg g{stroke:var(--white)}
+.panel{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,56px);align-items:start}
+.panel-photo{position:sticky;top:calc(var(--hdr) + 86px);border-radius:var(--r);overflow:hidden;background:var(--mist)}
+.panel-photo img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.panel-photo figcaption{position:absolute;left:14px;bottom:14px;background:rgba(247,243,238,.94);color:var(--deep);font-size:.88rem;font-weight:600;padding:6px 12px;border-radius:99px}
+.cat-note{color:var(--muted);margin-bottom:8px}
+.sub-h{font-family:var(--serif);font-size:1.4rem;color:var(--deep);margin:26px 0 4px}
+.sub-h:first-child{margin-top:0}
+.items{list-style:none;margin:0;padding:0}
+.item{display:grid;grid-template-columns:1fr auto;gap:4px 18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.item.hl{background:linear-gradient(90deg,rgba(185,197,172,.35),rgba(185,197,172,0));margin:0 -12px;padding-left:12px;padding-right:12px;border-radius:8px}
+.item h4{margin:0;font-family:var(--sans);font-size:1.08rem;font-weight:600;color:var(--ink);display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.item p{grid-column:1/2;color:var(--muted);font-size:.98rem;line-height:1.45}
+.price{font-weight:600;font-variant-numeric:tabular-nums;color:var(--deep);font-size:1.05rem}
+.tag{font-size:.72rem;font-weight:700;letter-spacing:.04em;padding:3px 8px;border-radius:99px;background:var(--mist);color:var(--sage6)}
+.tag.fav{background:#F3E6D6;color:#7D5A36}
+.menu-foot{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;margin-top:28px;color:var(--muted);font-size:.95rem}
+.menu-foot a{color:var(--deep);font-weight:600}
+.empty{color:var(--muted);padding:18px 0}
+
+/* People */
+.people{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,5vw,64px);align-items:center}
+.people-photo{position:relative}
+.people-photo img{border-radius:var(--r);width:100%;aspect-ratio:3/2;object-fit:cover}
+.people-photo .inset{position:absolute;right:-18px;bottom:-28px;width:34%;border:6px solid var(--white);border-radius:var(--r);aspect-ratio:1;object-fit:cover}
+.rating{display:flex;align-items:center;gap:16px;margin:28px 0 8px}
+.rating b{font-family:var(--serif);font-weight:400;font-size:3.6rem;line-height:1;color:var(--deep)}
+.rating .stars{color:var(--caramel);font-size:1.2rem}
+.quotes-wrap{margin-top:clamp(56px,7vw,88px)}
+.quotes{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(280px,1fr);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(-1*var(--gut));padding:0 var(--gut) 6px;scroll-padding-inline:var(--gut);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 var(--gut),#000 calc(100% - var(--gut)),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 var(--gut),#000 calc(100% - var(--gut)),transparent 100%)}
+.quotes::-webkit-scrollbar{display:none}
+.quote{scroll-snap-align:start;margin:0;background:var(--plate);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:18px;box-shadow:0 1px 0 var(--line)}
+.quote blockquote{margin:0;font-family:var(--serif);font-size:1.22rem;line-height:1.4;color:var(--ink)}
+.quote figcaption{margin-top:auto;font-size:.92rem;color:var(--muted)}
+.quote figcaption b{color:var(--deep);font-weight:600}
+.q-nav{display:flex;gap:8px}
+.q-nav button{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--deep);background:transparent;color:var(--deep);cursor:pointer;display:grid;place-items:center}
+.q-nav button:hover:not(:disabled){background:var(--deep);color:var(--white)}
+.q-nav button:disabled{opacity:.3;cursor:default}
+
+/* Groups */
+.groups{position:relative;min-height:560px;display:flex;align-items:center;color:var(--white);overflow:hidden;background:var(--deep)}
+.groups>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.groups::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(24,28,24,0) 30%,rgba(24,28,24,.82) 72%)}
+.groups .wrap{position:relative;z-index:1;width:100%;display:flex;justify-content:flex-end}
+.groups .box{max-width:440px}
+.groups p{margin:18px 0 26px;font-size:1.1rem;opacity:.95}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.chips span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:99px;background:rgba(247,243,238,.14);font-size:.95rem}
+.chips svg{width:22px;height:22px}
+.chips svg g{stroke:currentColor}
+
+/* Reserve */
+.reserve{background:var(--mist)}
+.res-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,5vw,72px);align-items:start}
+.points{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:16px}
+.points li{display:flex;gap:14px;align-items:flex-start}
+.points svg{width:30px;height:30px;flex:none}
+.faq{margin-top:34px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:16px 0;font-weight:600;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--sage)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 0 18px;color:var(--muted)}
+.book{background:var(--plate);border-radius:20px;padding:clamp(22px,3vw,36px);box-shadow:0 10px 40px rgba(63,74,65,.10)}
+.book h3{font-size:1.8rem;margin-bottom:22px}
+.lbl{display:block;font-weight:600;font-size:.95rem;margin:0 0 10px}
+.fgroup{margin-bottom:24px}
+.stepper{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:99px;overflow:hidden}
+.stepper button{width:50px;height:50px;border:0;background:transparent;font-size:1.4rem;cursor:pointer;color:var(--deep)}
+.stepper button:disabled{opacity:.3;cursor:default}
+.stepper output{min-width:96px;text-align:center;font-weight:600}
+.big-note{margin-top:10px;font-size:.95rem;color:var(--caramel)}
+.scroller{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px}
+.scroller::-webkit-scrollbar{display:none}
+.daybtn,.timebtn{border:1.5px solid var(--line);background:var(--plate);border-radius:12px;cursor:pointer;color:var(--deep);flex:none}
+.daybtn{width:68px;padding:10px 0;display:flex;flex-direction:column;align-items:center;line-height:1.2}
+.daybtn small{font-size:.8rem;color:var(--muted)}
+.daybtn b{font-size:1.25rem;font-weight:600}
+.timebtn{min-width:74px;height:46px;font-weight:600;font-variant-numeric:tabular-nums}
+.times{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+[aria-pressed="true"].daybtn,[aria-pressed="true"].timebtn{background:var(--deep);border-color:var(--deep);color:var(--white)}
+[aria-pressed="true"].daybtn small{color:var(--awning)}
+.timebtn:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.book .btn-primary{width:100%;margin-top:4px}
+.book .alt{margin-top:14px;font-size:.95rem;color:var(--muted);text-align:center}
+.book .alt a{color:var(--deep);font-weight:600}
+.done{display:none;text-align:center;padding:12px 0}
+.done svg{width:64px;height:64px;margin:0 auto 14px}
+.done h3{margin-bottom:10px}
+.done p{color:var(--muted);margin-bottom:22px}
+.done .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.book.sent form{display:none}
+.book.sent .done{display:block}
+.proto{margin-top:16px;font-size:.82rem;color:var(--muted);text-align:center}
+
+.res-grid>*,.visit-grid>*,.people>*,.panel>*{min-width:0}
+/* Visit */
+.visit-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,64px);align-items:stretch}
+.hours{width:100%;border-collapse:collapse;margin:26px 0}
+.hours td{padding:10px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.hours tr.today td{font-weight:700;color:var(--deep)}
+.hours tr.today td:first-child::after{content:" · today";font-weight:500;color:var(--caramel)}
+.addr{font-size:1.15rem;font-weight:600;color:var(--deep)}
+.visit-ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.map{border-radius:var(--r);overflow:hidden;min-height:420px;background:var(--mist);position:relative}
+.map>a{position:absolute;inset:0}
+.map>a img{width:100%;height:100%;object-fit:cover}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* Footer */
+footer{background:var(--deep);color:var(--white);padding:72px 0 calc(40px + env(safe-area-inset-bottom));position:relative;overflow:hidden}
+footer .spiral{position:absolute;right:-260px;top:50%;width:900px;height:auto;transform:translateY(-50%);opacity:.09;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 35%);mask-image:linear-gradient(90deg,transparent 0,#000 35%)}
+footer .wrap{position:relative}
+.f-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid rgba(247,243,238,.18)}
+.f-top svg{height:44px;width:auto;color:var(--white)}
+.f-top p{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem)}
+.f-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;padding:36px 0}
+.f-cols h4{margin:0 0 12px;font-size:.95rem;color:var(--awning);font-weight:600}
+.f-cols a{text-decoration:none;border-bottom:1px solid rgba(247,243,238,.35)}
+.f-cols a:hover{border-bottom-color:var(--white)}
+.f-cols p{line-height:1.8}
+.f-small{font-size:.84rem;color:rgba(247,243,238,.68)}
+
+/* Phone bar */
+.pbar{display:none}
+
+@media (max-width:1020px){
+  .mottos{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:min(290px,74%);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-right:calc(-1*var(--gut));padding-right:var(--gut)}
+  .mottos::-webkit-scrollbar{display:none}
+  .mcard{scroll-snap-align:start}
+}
+@media (max-width:860px){
+  :root{--hdr:64px}
+  body{font-size:16.5px}
+  .nav,.hdr .order,.hdr .hdr-cta{display:none}
+  .menu-btn{display:block}
+  .drawer{display:block;position:fixed;inset:var(--hdr) 0 auto 0;background:var(--white);color:var(--deep);padding:8px var(--gut) 24px;box-shadow:0 20px 40px rgba(0,0,0,.12);transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+  .hdr.open .drawer{opacity:1;transform:none;pointer-events:auto}
+  .hdr.open{background:var(--white);color:var(--deep)}
+  .drawer a{display:block;padding:14px 0;font-size:1.25rem;font-family:var(--serif);text-decoration:none;border-bottom:1px solid var(--line)}
+  .hero{min-height:88vh;min-height:88svh}
+  .hero h1{font-size:clamp(2.7rem,12vw,3.6rem)}
+  .hero::after{background:linear-gradient(180deg,rgba(24,28,24,.5) 0,rgba(24,28,24,0) 120px),linear-gradient(0deg,rgba(24,28,24,.88) 0%,rgba(24,28,24,.55) 45%,rgba(24,28,24,.1) 75%)}
+  .hero>img{object-position:62% 50%}
+  .hero .wrap{padding-bottom:40px}
+  .hero .ctas .btn{flex:1}
+  .panel{grid-template-columns:1fr}
+  .panel-photo{position:relative;top:0}
+  .panel-photo img{aspect-ratio:16/9}
+  .people{grid-template-columns:1fr}
+  .people-photo .inset{right:10px;bottom:-24px;width:32%}
+  .groups{min-height:auto;flex-direction:column;align-items:stretch}
+  .groups>img{position:relative;height:300px}
+  .groups::after{display:none}
+  .groups .wrap{padding-top:36px;padding-bottom:48px}
+  .res-grid,.visit-grid{grid-template-columns:1fr}
+  .map{min-height:300px}
+  .f-cols{grid-template-columns:1fr 1fr}
+  .quotes{grid-auto-columns:min(440px,84%)}
+  .q-nav{display:none}
+  .pbar{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(247,243,238,.97);box-shadow:0 -1px 0 var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transform:translateY(110%);transition:transform .25s}
+  .pbar.show{transform:none}
+  .pbar a{min-height:48px;font-size:.98rem;padding:0 10px}
+  footer{padding-bottom:110px}
+}
+@media (max-width:520px){
+  .f-cols{grid-template-columns:1fr}
+  .tools{width:100%}
+}
+@media (max-height:520px) and (orientation:landscape){
+  .hero{min-height:100vh;min-height:100svh}
+  .hero .wrap{padding-top:calc(var(--hdr) + 8px);padding-bottom:20px}
+  .hero h1{font-size:2.5rem;max-width:none}
+  .hero p.sub{margin-top:8px}
+  .hero .ctas .btn{flex:0 0 auto}
+}
+@supports not (aspect-ratio:1){.mcard{height:400px}.panel-photo img,.people-photo img{height:360px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"Motto","url":"https://www.mottotoronto.ca","telephone":"+1-437-696-1903","email":"mottotoronto@gmail.com","servesCuisine":["Breakfast","Brunch","Café"],"priceRange":"$$","acceptsReservations":true,
+"address":{"@type":"PostalAddress","streetAddress":"764 Queen St W","addressLocality":"Toronto","addressRegion":"ON","postalCode":"M6J 1E9","addressCountry":"CA"},
+"geo":{"@type":"GeoCoordinates","latitude":43.6460288,"longitude":-79.410546},
+"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Sunday"],"opens":"08:30","closes":"17:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"08:30","closes":"18:00"}],
+"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"220"},
+"sameAs":["https://www.instagram.com/mottotoronto/"]}
+</script>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Motto, back to top">{{WORDMARK}}</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#menu">Menu</a>
+      <a href="#people">Reviews</a>
+      <a href="#visit">Visit</a>
+      <a class="order" href="https://www.ubereats.com/ca/store/motto-breakfast-&amp;-brunch/2pEw_GOYU5atxrU9nsKbUA" target="_blank" rel="noopener">Order delivery ↗</a>
+    </nav>
+    <a class="btn btn-primary hdr-cta" href="#reserve">Book a table</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+  </div>
+  <div class="drawer" id="drawer">
+    <a href="#menu">Menu</a>
+    <a href="#people">Reviews</a>
+    <a href="#reserve">Book a table</a>
+    <a href="#visit">Hours &amp; directions</a>
+    <a href="https://www.ubereats.com/ca/store/motto-breakfast-&amp;-brunch/2pEw_GOYU5atxrU9nsKbUA" target="_blank" rel="noopener">Order delivery ↗</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="top">
+  <img src="{{IMG:hero}}" alt="A table at Motto: eggs benedict, brisket and avocado, pistachio pancakes, cold-pressed juice and Turkish tea" width="2000" height="1333" fetchpriority="high">
+  <div class="wrap">
+    <h1>What's your motto today?</h1>
+    <p class="sub">We'll help you live it. All-day breakfast, coffee and cold-pressed juice on Queen West, made fresh every morning.</p>
+    <div class="ctas">
+      <a class="btn btn-light" href="#reserve">Book a table</a>
+      <a class="btn btn-ghost" href="#menu">See the menu</a>
+    </div>
+    <div class="facts">
+      <span><i class="dot" id="heroDot"></i><span id="heroOpen">Open daily 8:30 to 5:30</span></span>
+      <span><span class="stars" aria-hidden="true">★★★★★</span> 4.8 from 220 Google reviews</span>
+      <span>764 Queen St W, by Trinity Bellwoods</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="mottos" aria-labelledby="mottos-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="kicker">Pick your motto</p>
+        <h2 id="mottos-h">Whatever today's for,<br>we've got your order.</h2>
+      </div>
+      <p class="lede">Tap a motto to jump to the dishes that go with it.</p>
+    </div>
+    <div class="mottos">
+      <a class="mcard" href="#menu" data-cat="drinks" data-item="Motto Green"><img src="{{IMG:m-eat}}" alt="Motto Green cold-pressed juice" loading="lazy"><div class="txt"><small>My motto today</small><strong>Eat well</strong><em>Motto Green juice, then the brisket and avocado.</em><span class="go">See dishes</span></div></a>
+      <a class="mcard" href="#menu" data-cat="drinks" data-item="Latte"><img src="{{IMG:m-work}}" alt="A latte held over a table at Motto" loading="lazy"><div class="txt"><small>My motto today</small><strong>Get it done</strong><em>A big latte and a sunny table. You've got this.</em><span class="go">See dishes</span></div></a>
+      <a class="mcard" href="#menu" data-cat="drinks" data-item="Turkish Tea"><img src="{{IMG:m-slow}}" alt="A glass of Turkish tea" loading="lazy"><div class="txt"><small>My motto today</small><strong>Slow down</strong><em>Turkish tea and nowhere to be.</em><span class="go">See dishes</span></div></a>
+      <a class="mcard" href="#menu" data-cat="breakfast" data-item="Mediterranean Breakfast"><img src="{{IMG:m-catch}}" alt="Friends at a table inside Motto" loading="lazy"><div class="txt"><small>My motto today</small><strong>Make time for friends</strong><em>Plates to share and plenty to talk about.</em><span class="go">See dishes</span></div></a>
+      <a class="mcard" href="#menu" data-cat="sweet" data-item="Pistachio Pancakes"><img src="{{IMG:m-treat}}" alt="Pistachio pancakes with pistachio sauce" loading="lazy"><div class="txt"><small>My motto today</small><strong>Treat myself</strong><em>The pistachio pancakes everyone photographs.</em><span class="go">See dishes</span></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec menu-sec" id="menu" aria-labelledby="menu-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="kicker">The menu</p>
+        <h2 id="menu-h">Breakfast, all day.</h2>
+      </div>
+      <div class="tools">
+        <label class="toggle"><input type="checkbox" id="vegOnly"> Vegetarian only</label>
+      </div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Menu sections" id="tabs"></div>
+    <div class="panel" id="panel" role="tabpanel">
+      <figure class="panel-photo" style="margin:0"><img id="catImg" src="{{IMG:c-breakfast}}" alt="" width="1000" height="800"><figcaption id="catCap"></figcaption></figure>
+      <div id="catList"></div>
+    </div>
+    <div class="menu-foot">
+      <span><span class="tag fav">Guest favourite</span> most mentioned in reviews</span>
+      <span><span class="tag">V</span> vegetarian</span>
+      <span>Allergies or swaps? Tell your server, the kitchen is happy to help.</span>
+      <a href="https://www.ubereats.com/ca/store/motto-breakfast-&amp;-brunch/2pEw_GOYU5atxrU9nsKbUA" target="_blank" rel="noopener">Order delivery on Uber Eats ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="people" aria-labelledby="people-h">
+  <div class="wrap">
+    <div class="people">
+      <div class="people-photo">
+        <img src="{{IMG:team}}" alt="The Motto team, kitchen and floor together, inside the café" width="1080" height="748" loading="lazy">
+        <img class="inset" src="{{IMG:kitchen}}" alt="The Motto kitchen during a busy morning" width="900" height="900" loading="lazy">
+      </div>
+      <div>
+        <p class="kicker">People who make your day</p>
+        <h2 id="people-h">Come for the pancakes. Remember the people.</h2>
+        <div class="rating"><b>4.8</b><div><div class="stars" aria-label="4.8 out of 5 stars">★★★★★</div><div>from 220 Google reviews</div></div></div>
+        <p class="lede">Most of our reviews are about the team, from the kitchen making everything by hand to servers guests thank by name.</p>
+      </div>
+    </div>
+    <div class="quotes-wrap">
+      <div class="sec-head" style="margin-bottom:22px">
+        <h3>What guests say</h3>
+        <div class="q-nav"><button type="button" id="qPrev" aria-label="Previous reviews">←</button><button type="button" id="qNext" aria-label="Next reviews">→</button></div>
+      </div>
+      <div class="quotes" id="quotes">
+        <figure class="quote"><blockquote>“The food was delicious and presented well. Our server was also the sweetest!”</blockquote><figcaption><b>Z K</b> · Google review</figcaption></figure>
+        <figure class="quote"><blockquote>“My new go-to matcha spot! The eggs benedict was also super yummy.”</blockquote><figcaption><b>Jasmine</b> · Google review</figcaption></figure>
+        <figure class="quote"><blockquote>“Took myself to a yummy brunch with turkish tea, a salmon sandwich, and pistachio tiramisu.”</blockquote><figcaption><b>Noor</b> · Google review</figcaption></figure>
+        <figure class="quote"><blockquote>“I have some dietary restrictions and they've always found work around options for me, which is so appreciated!”</blockquote><figcaption><b>Anna</b> · Google review</figcaption></figure>
+        <figure class="quote"><blockquote>“Great food. Great vibes. Great service. Plus I got an unexpected cat in my coffee. 10/10”</blockquote><figcaption><b>Alex M.</b> · Google review</figcaption></figure>
+        <figure class="quote"><blockquote>“The montreal smoked meat was actually SO good! I would 100% come back for just this sandwich.”</blockquote><figcaption><b>Nia A.</b> · Google review</figcaption></figure>
+      </div>
+      <p style="margin-top:22px"><a href="https://www.google.com/maps/search/?api=1&amp;query=Motto%20Toronto%20764%20Queen%20St%20W" target="_blank" rel="noopener" style="font-weight:600;color:var(--deep)">Read all reviews on Google ↗</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="groups" id="groups" aria-labelledby="groups-h">
+  <img src="{{IMG:patio}}" alt="Motto's summer patio on Queen Street West, full of guests" width="1000" height="666" loading="lazy">
+  <div class="wrap">
+    <div class="box">
+      <p class="kicker" style="color:var(--awning)">Bring your people</p>
+      <h2 id="groups-h">The group chat finally made it.</h2>
+      <p>Plates made to share, long tables and a 62-seat patio when the sun's out. Book up to 8 online. Nine or more? Call us and we'll set it up.</p>
+      <div class="chips"><span>{{ICON:line:groups}} Tables for 2 to 8</span><span>{{ICON:line:patio}} Patio in season</span></div>
+      <a class="btn btn-light" href="#reserve" data-party="6">Book for the group</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec reserve" id="reserve" aria-labelledby="reserve-h">
+  <div class="wrap res-grid">
+    <div>
+      <p class="kicker">Book a table</p>
+      <h2 id="reserve-h">Save us a seat.</h2>
+      <ul class="points">
+        <li>{{ICON:plate:reserve}}<span>Book online for up to 8. We hold your table for 15 minutes.</span></li>
+        <li>{{ICON:plate:groups}}<span>Nine or more, call <a href="tel:+14376961903">437-696-1903</a> and we'll plan it with you.</span></li>
+        <li>{{ICON:plate:coffee}}<span>Walk-ins are always welcome when there's room.</span></li>
+      </ul>
+      <div class="faq">
+        <details><summary>Do you have vegetarian options?</summary><p>Plenty. Use the "Vegetarian only" switch on the menu, and tell your server about any allergies or swaps.</p></details>
+        <details><summary>Can I order for pickup or delivery?</summary><p>Delivery is on Uber Eats. For coffee and pastries to go, just come to the counter.</p></details>
+      </div>
+    </div>
+
+    <div class="book" id="book">
+      <form id="bookForm" novalidate>
+        <h3>Book a table</h3>
+        <div class="fgroup">
+          <span class="lbl" id="partyL">Guests</span>
+          <div class="stepper" role="group" aria-labelledby="partyL">
+            <button type="button" id="pMinus" aria-label="Fewer guests">−</button>
+            <output id="party" aria-live="polite">2 guests</output>
+            <button type="button" id="pPlus" aria-label="More guests">+</button>
+          </div>
+          <p class="big-note" id="bigNote" hidden>For 9 or more, please call <a href="tel:+14376961903">437-696-1903</a> and we'll set it up.</p>
+        </div>
+        <div class="fgroup">
+          <span class="lbl">Day</span>
+          <div class="scroller" id="days"></div>
+        </div>
+        <div class="fgroup">
+          <span class="lbl">Time</span>
+          <div class="times" id="times"></div>
+        </div>
+        <button class="btn btn-primary" type="submit" id="bookBtn">Book table</button>
+        <p class="alt">Prefer to talk? <a href="tel:+14376961903">Call 437-696-1903</a></p>
+      </form>
+      <div class="done" id="done" role="status" aria-live="polite">
+        {{ICON:plate:reserve}}
+        <h3>See you soon.</h3>
+        <p id="doneText"></p>
+        <div class="row">
+          <button class="btn btn-primary" type="button" id="ics">Add to calendar</button>
+          <button class="btn btn-line" type="button" id="again">Change booking</button>
+        </div>
+      </div>
+      <p class="proto">Prototype: nothing is sent yet. The live site connects this to Motto's booking system.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="visit" aria-labelledby="visit-h">
+  <div class="wrap visit-grid">
+    <div>
+      <p class="kicker">Visit</p>
+      <h2 id="visit-h">Come by. We open at 8:30.</h2>
+      <table class="hours" id="hours" aria-label="Opening hours">
+        <tr data-d="1"><td>Monday</td><td>8:30 – 5:30</td></tr>
+        <tr data-d="2"><td>Tuesday</td><td>8:30 – 5:30</td></tr>
+        <tr data-d="3"><td>Wednesday</td><td>8:30 – 5:30</td></tr>
+        <tr data-d="4"><td>Thursday</td><td>8:30 – 5:30</td></tr>
+        <tr data-d="5"><td>Friday</td><td>8:30 – 6:00</td></tr>
+        <tr data-d="6"><td>Saturday</td><td>8:30 – 6:00</td></tr>
+        <tr data-d="0"><td>Sunday</td><td>8:30 – 5:30</td></tr>
+      </table>
+      <p class="addr">764 Queen St W, Toronto</p>
+      <p style="color:var(--muted)">A 3-minute walk from Trinity Bellwoods. The 501 Queen streetcar stops at Shaw.</p>
+      <div class="visit-ctas">
+        <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Motto%20764%20Queen%20St%20W%20Toronto" target="_blank" rel="noopener">Get directions</a>
+        <a class="btn btn-line" href="tel:+14376961903">Call us</a>
+      </div>
+    </div>
+    <div class="map">
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Motto%20764%20Queen%20St%20W%20Toronto" target="_blank" rel="noopener" aria-label="Open Motto in Google Maps"><img src="{{IMG:storefront}}" alt="Motto storefront at 764 Queen St W" loading="lazy"></a>
+      <iframe title="Map showing Motto at 764 Queen St W" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Motto%20Toronto%2C%20764%20Queen%20St%20W&amp;z=16&amp;output=embed"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  {{SPIRAL}}
+  <div class="wrap">
+    <div class="f-top">
+      {{WORDMARK}}
+      <p>What's your motto today?</p>
+    </div>
+    <div class="f-cols">
+      <div><h4>Find us</h4><p>764 Queen St W<br>Toronto ON M6J 1E9<br><a href="tel:+14376961903">437-696-1903</a><br><a href="mailto:mottotoronto@gmail.com">mottotoronto@gmail.com</a></p></div>
+      <div><h4>Hours</h4><p>Every day from 8:30<br>Sunday to Thursday until 5:30<br>Friday and Saturday until 6</p></div>
+      <div><h4>Follow</h4><p><a href="https://www.instagram.com/mottotoronto/" target="_blank" rel="noopener">Instagram @mottotoronto</a><br><a href="https://www.ubereats.com/ca/store/motto-breakfast-&amp;-brunch/2pEw_GOYU5atxrU9nsKbUA" target="_blank" rel="noopener">Order on Uber Eats</a><br>#whatsyourmottotoday</p></div>
+    </div>
+    <p class="f-small">© 2026 Motto. Prototype for review. Photos by Fareen Karim for blogTO, @mottotoronto and Google Maps guests (permission needed before launch). Menu and prices from Motto's printed menu, October 2026.</p>
+  </div>
+</footer>
+
+<nav class="pbar" id="pbar" aria-label="Quick actions">
+  <a class="btn btn-primary" href="#reserve">Book a table</a>
+  <a class="btn btn-line" href="#menu">Menu</a>
+  <a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&amp;destination=Motto%20764%20Queen%20St%20W%20Toronto" target="_blank" rel="noopener">Directions</a>
+</nav>
+
+<script>
+(function(){
+var IMG={{IMGMAP}};
+var ICON={{ICONMAP}};
+var TZ="America/Toronto";
+
+/* ---------- Menu data: Motto's printed menu, October 2026 ---------- */
+var MENU=[
+ {id:"breakfast",name:"Breakfast plates",icon:"breakfast",img:"c-breakfast",cap:"Mediterranean Breakfast",note:"All day, every day, 8:30 to close.",groups:[{items:[
+  ["Northern Breakfast","Two fried eggs, sausage, beef bacon, roasted potatoes, three pancakes with dulce de leche, fresh fruit","24",""],
+  ["Mediterranean Breakfast","Two fried eggs, sausage, mücver (zucchini fritter), olives, muhammara, dulce de leche, toast, fresh salad with feta","26","F"],
+  ["Eggs Benedict","English muffin, herbed cream cheese, smoked salmon, poached eggs, hollandaise, roasted potatoes, fresh salad","24","F"],
+  ["Brisket & Avocado","Sourdough, smashed avocado, brisket, two scrambled eggs, tomatoes, chive potatoes, fresh salad","25",""],
+  ["Menemen","Turkish-style scrambled eggs with tomatoes, peppers and spices, olives, feta, house-made bread","20","FV"],
+  ["Egg & Beef Bacon Croissant","Butter croissant, two scrambled eggs, beef bacon, arugula, parmesan, roasted potatoes","20",""],
+  ["Egg & Avocado Croissant","Toasted butter croissant, smashed avocado, poached egg, arugula, parmesan, roasted potatoes","18","V"],
+  ["Egg & Salmon Croissant","Butter croissant, two scrambled eggs, smoked salmon, arugula, parmesan, roasted potatoes","20",""]]}]},
+ {id:"omelettes",name:"Omelettes",icon:"omelette",img:"c-omelettes",cap:"Omelette with salad and potatoes",note:"Three eggs, with salad or roasted potatoes and house-made white or brown bread.",groups:[{items:[
+  ["Motto Brisket","Slow-cooked beef brisket, mozzarella","20","F"],
+  ["Mushroom Melt","Mushrooms, caramelized onions, mozzarella","18","V"],
+  ["Beef Bacon","Beef bacon, mozzarella","20",""],
+  ["Cheesy","Mozzarella, feta","17","V"]]}]},
+ {id:"sweet",name:"Sweet starts",icon:"pancakes",img:"c-sweet",cap:"Pistachio Pancakes",note:"Pancakes and French toast, all day.",groups:[{items:[
+  ["Pistachio Pancakes","Pistachio sauce, mascarpone cream, crushed pistachios","18","FV"],
+  ["Chocolate Pancakes","Chocolate sauce, mascarpone cream, fresh strawberries","17","V"],
+  ["Berry Pancakes","Maple and mixed berry sauce, mascarpone cream","17","V"],
+  ["French Toast","Brioche, maple and mixed berry sauce, mascarpone cream, powdered sugar","18","V"]]}]},
+ {id:"sandwiches",name:"Sandwiches",icon:"sandwiches",img:"c-sandwiches",cap:"Salmon Burrata Croissant",note:"",groups:[{items:[
+  ["Salmon Burrata Croissant","Smoked salmon, dill, red onion, arugula, crispy capers, burrata","18",""],
+  ["Montreal Smoked Beef","Crispy beef bacon crumbs, Havarti, mustard, mayo, honey, pickle, red onion","18",""],
+  ["Smoked Turkey","Muhammara, pesto, soy sauce, romaine, red onion","17",""],
+  ["Tuna","Mayo, mustard, pickle, yogurt, capers, dill, arugula, red onion","17",""],
+  ["Fresh Mozzarella Croissant","Butter croissant, tomato, mozzarella, fresh basil","14","V"],
+  ["Vegetarian","Toasted bread, tomato sauce, yogurt-mint mayo, roasted pepper, zucchini, eggplant, parmesan","14","V"],
+  ["Börek","Pastry filled with feta and mozzarella, fresh parsley, dill","12","V"]]}]},
+ {id:"dessert",name:"Dessert",icon:"dessert",img:"c-dessert",cap:"Berry and pistachio cheesecake",note:"Baked in house.",groups:[{items:[
+  ["Pistachio Cheesecake","","12","F"],
+  ["San Sebastián Cheesecake","","12",""],
+  ["Berry Cheesecake","","12",""],
+  ["Pistachio Tiramisu","","11",""],
+  ["Dulce de Leche Tiramisu","","11",""],
+  ["Classic Tiramisu","","9",""],
+  ["Brownie Dulce de Leche","","11",""],
+  ["Brownie Cherry","","10",""]]}]},
+ {id:"drinks",name:"Drinks",icon:"coffee",img:"c-drinks",cap:"Motto Beet, cold-pressed",note:"Oat, almond, soy or lactose-free milk +0.75. Flavour shot +0.75.",groups:[
+  {h:"Coffee",items:[["Latte","","5",""],["Cappuccino","","5",""],["Flat White","","4",""],["Cortado","","4",""],["Americano","","4",""],["Espresso","","4",""],["Macchiato","","4",""],["Mocha","","6",""]]},
+  {h:"Lattes & more",items:[["Matcha Latte","","6","F"],["Hojicha Latte","","6",""],["Chai Latte","","6",""],["London Fog","","6",""],["Hot Chocolate","","6",""],["Turkish Coffee","","6",""]]},
+  {h:"Tea",items:[["Turkish Tea","","3","F"],["Canadian Maple","Rooibos, cocoa shells, maple, licorice root, safflower","4.5",""],["Ctrl+Alt+Del","Lemongrass, ginger, lemon peel, cinnamon, cranberry, apple, hibiscus, cardamom","4.5",""],["Verbena Blues","Lemongrass, ginger, lemon verbena, hibiscus, butterfly pea flower","4.5",""],["Organic Fields of Green","Organic green tea","4.5",""],["Organic Peppermint","","4.5",""]]},
+  {h:"Cold-pressed juice",items:[["Motto Green","Kale, celery, mint, pineapple, lemon, green apple, ginger","12",""],["Motto Turmeric","Carrot, lemon, celery, apple, pear, ginger, turmeric","12",""],["Motto Beet","Carrot, beet, apple, ginger, lemon","12",""],["Motto Orange","","9",""],["Motto Pear","","9",""]]},
+  {h:"Health boosters",items:[["Turmeric Shot","","4",""],["Ginger Shot","","4",""]]}],foot:"Flavour shots: vanilla, caramel, hazelnut, pumpkin spice, maple, lavender, strawberry, pistachio, smoked marshmallow."}
+];
+/* Drinks are all vegetarian */
+MENU[5].groups.forEach(function(g){g.items.forEach(function(it){if(it[3].indexOf("V")<0)it[3]+="V";});});
+
+var tabsEl=document.getElementById("tabs"),listEl=document.getElementById("catList"),catImg=document.getElementById("catImg"),catCap=document.getElementById("catCap"),veg=document.getElementById("vegOnly");
+var current="breakfast",highlight=null;
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+MENU.forEach(function(c){
+  var b=document.createElement("button");b.type="button";b.className="tab";b.setAttribute("role","tab");b.id="tab-"+c.id;b.dataset.id=c.id;
+  b.innerHTML=ICON.line[c.icon]+"<span>"+c.name+"</span>";
+  b.addEventListener("click",function(){show(c.id);});
+  tabsEl.appendChild(b);
+});
+function show(id,hl){
+  current=id;highlight=hl||null;
+  var c=MENU.filter(function(x){return x.id===id})[0];
+  [].forEach.call(tabsEl.children,function(b){var on=b.dataset.id===id;b.setAttribute("aria-selected",on);b.tabIndex=on?0:-1;if(on&&b.scrollIntoView&&hl)b.scrollIntoView({block:"nearest",inline:"center"});});
+  catImg.src=IMG[c.img];catImg.alt=c.cap;catCap.textContent=c.cap;
+  var h="";if(c.note)h+='<p class="cat-note">'+esc(c.note)+"</p>";
+  var shown=0;
+  c.groups.forEach(function(g){
+    var rows=g.items.filter(function(it){return !veg.checked||it[3].indexOf("V")>=0});
+    if(!rows.length)return;
+    if(g.h)h+='<h3 class="sub-h">'+esc(g.h)+"</h3>";
+    h+='<ul class="items">';
+    rows.forEach(function(it){shown++;
+      var tags="";if(it[3].indexOf("F")>=0)tags+='<span class="tag fav">Guest favourite</span>';if(it[3].indexOf("V")>=0&&c.id!=="drinks")tags+='<span class="tag" title="Vegetarian">V</span>';
+      h+='<li class="item'+(hl===it[0]?" hl":"")+'"><h4>'+esc(it[0])+" "+tags+'</h4><span class="price">'+it[2]+"</span>"+(it[1]?"<p>"+esc(it[1])+"</p>":"")+"</li>";
+    });
+    h+="</ul>";
+  });
+  if(c.foot&&shown)h+='<p class="cat-note" style="margin-top:18px">'+esc(c.foot)+"</p>";
+  if(!shown)h+='<p class="empty">No vegetarian dishes in this section. Try Sweet starts or Drinks.</p>';
+  listEl.innerHTML=h;
+  tabsEl.parentNode.querySelector("#panel").setAttribute("aria-labelledby","tab-"+id);
+}
+veg.addEventListener("change",function(){show(current);});
+tabsEl.addEventListener("keydown",function(e){
+  if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;
+  var i=MENU.findIndex(function(c){return c.id===current});i=(i+(e.key==="ArrowRight"?1:-1)+MENU.length)%MENU.length;show(MENU[i].id);tabsEl.children[i].focus();
+});
+show("breakfast");
+[].forEach.call(document.querySelectorAll(".mcard"),function(a){
+  a.addEventListener("click",function(){veg.checked=false;show(a.dataset.cat,a.dataset.item);});
+});
+
+/* ---------- Header, drawer, phone bar, active link ---------- */
+var hdr=document.getElementById("hdr"),pbar=document.getElementById("pbar"),hero=document.getElementById("top");
+function onScroll(){
+  var past=window.scrollY>hero.offsetHeight-90;
+  hdr.classList.toggle("solid",past||hdr.classList.contains("open"));
+  pbar.classList.toggle("show",window.scrollY>window.innerHeight*.6);
+}
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+var mb=document.getElementById("menuBtn");
+mb.addEventListener("click",function(){var o=!hdr.classList.contains("open");hdr.classList.toggle("open",o);mb.setAttribute("aria-expanded",o);mb.setAttribute("aria-label",o?"Close menu":"Open menu");onScroll();});
+[].forEach.call(document.querySelectorAll("#drawer a"),function(a){a.addEventListener("click",function(){hdr.classList.remove("open");mb.setAttribute("aria-expanded","false");onScroll();});});
+if("IntersectionObserver" in window){
+  var links=document.querySelectorAll(".nav a[href^='#']");
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){[].forEach.call(links,function(l){l.classList.toggle("on",l.getAttribute("href")==="#"+e.target.id);});}});},{rootMargin:"-45% 0px -50% 0px"});
+  ["menu","people","visit","reserve","mottos","groups"].forEach(function(id){io.observe(document.getElementById(id));});
+}
+
+/* ---------- Open now (Toronto time) ---------- */
+function torontoNow(){
+  var p=new Intl.DateTimeFormat("en-CA",{timeZone:TZ,weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false,year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date());
+  var o={};p.forEach(function(x){o[x.type]=x.value});
+  var wd={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[o.weekday];
+  return {d:wd,min:(+o.hour%24)*60+(+o.minute),y:+o.year,m:+o.month,day:+o.day};
+}
+function closeMin(d){return (d===5||d===6)?18*60:17*60+30}
+function fmt(m){var h=Math.floor(m/60),mm=m%60;var h12=h>12?h-12:h;return h12+":"+(mm<10?"0":"")+mm}
+var now=torontoNow();
+var open=now.min>=510&&now.min<closeMin(now.d);
+document.getElementById("heroOpen").textContent=open?("Open now until "+fmt(closeMin(now.d))):(now.min<510?"Opens today at 8:30":"Closed now, opens tomorrow at 8:30");
+if(!open)document.getElementById("heroDot").classList.add("closed");
+var tr=document.querySelector('#hours tr[data-d="'+now.d+'"]');if(tr)tr.classList.add("today");
+
+/* ---------- Booking ---------- */
+var party=2,dayIdx=0,time=null;
+var pOut=document.getElementById("party"),pMinus=document.getElementById("pMinus"),pPlus=document.getElementById("pPlus"),bigNote=document.getElementById("bigNote"),bookBtn=document.getElementById("bookBtn");
+function setParty(n){party=Math.max(1,Math.min(9,n));pOut.textContent=party===9?"9+ guests":party+(party===1?" guest":" guests");pMinus.disabled=party<=1;pPlus.disabled=party>=9;bigNote.hidden=party<9;bookBtn.disabled=party>=9;bookBtn.style.opacity=party>=9?.4:1;}
+pMinus.onclick=function(){setParty(party-1)};pPlus.onclick=function(){setParty(party+1)};setParty(2);
+[].forEach.call(document.querySelectorAll("[data-party]"),function(a){a.addEventListener("click",function(){setParty(+a.dataset.party)});});
+var DAYS=[];var base=new Date(Date.UTC(now.y,now.m-1,now.day));
+for(var i=0;i<14;i++){var dt=new Date(base.getTime()+i*864e5);DAYS.push({date:dt,wd:dt.getUTCDay()});}
+var daysEl=document.getElementById("days"),timesEl=document.getElementById("times");
+var WD=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],MO=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],WDL=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+DAYS.forEach(function(d,i){var b=document.createElement("button");b.type="button";b.className="daybtn";b.setAttribute("aria-pressed",i===0);
+  b.innerHTML="<small>"+(i===0?"Today":i===1?"Tmrw":WD[d.wd])+"</small><b>"+d.date.getUTCDate()+"</b><small>"+MO[d.date.getUTCMonth()]+"</small>";
+  b.setAttribute("aria-label",WDL[d.wd]+" "+MO[d.date.getUTCMonth()]+" "+d.date.getUTCDate());
+  b.onclick=function(){dayIdx=i;[].forEach.call(daysEl.children,function(x,j){x.setAttribute("aria-pressed",j===i)});renderTimes();};daysEl.appendChild(b);});
+function renderTimes(){
+  var d=DAYS[dayIdx],last=closeMin(d.wd)-60,h="",first=null;
+  timesEl.innerHTML="";
+  for(var m=510;m<=last;m+=30){
+    var past=dayIdx===0&&m<now.min+30;
+    var b=document.createElement("button");b.type="button";b.className="timebtn";b.textContent=fmt(m);b.dataset.m=m;b.disabled=past;b.setAttribute("aria-pressed","false");
+    if(past)b.setAttribute("aria-label",fmt(m)+", not available");
+    b.onclick=function(){time=+this.dataset.m;[].forEach.call(timesEl.children,function(x){x.setAttribute("aria-pressed",+x.dataset.m===time)});};
+    timesEl.appendChild(b);if(!past&&first===null)first=m;
+  }
+  if(first===null){timesEl.innerHTML='<p class="empty" style="grid-column:1/-1">No more tables today. Pick another day.</p>';time=null;return;}
+  if(time===null||time<first||time>last)time=first;
+  [].forEach.call(timesEl.children,function(x){x.setAttribute("aria-pressed",+x.dataset.m===time)});
+}
+if(DAYS.length&&(function(){var d=DAYS[0];return now.min+30>closeMin(d.wd)-60})()){dayIdx=1;daysEl.children[0].setAttribute("aria-pressed","false");daysEl.children[1].setAttribute("aria-pressed","true");}
+renderTimes();
+var book=document.getElementById("book");
+document.getElementById("bookForm").addEventListener("submit",function(e){
+  e.preventDefault();if(party>=9||time===null)return;
+  var d=DAYS[dayIdx];
+  document.getElementById("doneText").textContent="Table for "+party+", "+WDL[d.wd]+" "+MO[d.date.getUTCMonth()]+" "+d.date.getUTCDate()+" at "+fmt(time)+". We hold tables for 15 minutes.";
+  book.classList.add("sent");
+});
+document.getElementById("again").onclick=function(){book.classList.remove("sent")};
+document.getElementById("ics").onclick=function(){
+  var d=DAYS[dayIdx],y=d.date.getUTCFullYear(),mo=d.date.getUTCMonth()+1,da=d.date.getUTCDate();
+  function p(n){return(n<10?"0":"")+n}
+  function stamp(m){return y+p(mo)+p(da)+"T"+p(Math.floor(m/60))+p(m%60)+"00"}
+  var ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Motto//Booking//EN","BEGIN:VEVENT","UID:"+Date.now()+"@motto","DTSTAMP:"+new Date().toISOString().replace(/[-:]/g,"").slice(0,15)+"Z","DTSTART;TZID=America/Toronto:"+stamp(time),"DTEND;TZID=America/Toronto:"+stamp(time+90),"SUMMARY:Motto, table for "+party,"LOCATION:Motto\\, 764 Queen St W\\, Toronto","DESCRIPTION:Running late? Call 437-696-1903.","END:VEVENT","END:VCALENDAR"].join("\r\n");
+  var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([ics],{type:"text/calendar"}));a.download="motto-booking.ics";document.body.appendChild(a);a.click();a.remove();
+};
+
+/* ---------- Reviews arrows ---------- */
+var q=document.getElementById("quotes");
+var qP=document.getElementById("qPrev"),qN=document.getElementById("qNext");
+function qStep(){var c=q.children;return c.length>1?c[1].offsetLeft-c[0].offsetLeft:q.clientWidth}
+function qState(){qP.disabled=q.scrollLeft<4;qN.disabled=q.scrollLeft+q.clientWidth>=q.scrollWidth-4}
+qP.onclick=function(){q.scrollBy({left:-qStep(),behavior:"smooth"})};
+qN.onclick=function(){q.scrollBy({left:qStep(),behavior:"smooth"})};
+q.addEventListener("scroll",qState,{passive:true});window.addEventListener("resize",qState);qState();
+})();
+</script>
+</body>
+</html>
