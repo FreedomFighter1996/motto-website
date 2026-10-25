@@ -124,14 +124,6 @@ section{position:relative}
 .sub-h:first-child{margin-top:0}
 .items{list-style:none;margin:0;padding:0}
 .item{display:grid;grid-template-columns:1fr auto;gap:4px 18px;padding:16px 0;border-bottom:1px solid var(--line)}
-.myorder{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;background:var(--mist);border-radius:var(--r);padding:14px 16px;margin:0 0 18px;scroll-margin-top:calc(var(--hdr) + 12px)}
-.myorder[hidden]{display:none}
-.myorder p{margin:0;font-size:.95rem}.myorder p strong{font-family:var(--serif);font-weight:400;font-size:1.25rem;margin-left:4px}
-.myorder ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
-.myorder .dish{border:1.5px solid var(--line);background:var(--plate);border-radius:99px;padding:9px 14px;font:inherit;font-size:.95rem;color:var(--deep);cursor:pointer;min-height:42px}
-.myorder .dish:hover,.myorder .dish[aria-current="true"]{border-color:var(--deep)}
-.myorder .dish small{color:var(--muted);margin-left:8px}
-.myorder .x{margin-left:auto;background:none;border:0;font:inherit;font-size:.9rem;color:var(--muted);cursor:pointer;text-decoration:underline;padding:8px}
 .item.hl{background:linear-gradient(90deg,rgba(185,197,172,.35),rgba(185,197,172,0));margin:0 -12px;padding-left:12px;padding-right:12px;border-radius:8px}
 .item h4{margin:0;font-family:var(--sans);font-size:1.08rem;font-weight:600;color:var(--ink);display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .item p{grid-column:1/2;color:var(--muted);font-size:.98rem;line-height:1.45}
@@ -273,7 +265,6 @@ footer .wrap{position:relative}
   .hero .ctas .btn{flex:1}
   .panel{grid-template-columns:1fr}
   .panel-photo{position:relative;top:0}
-  .panel.ordering .panel-photo{display:none}
   .panel-photo img{aspect-ratio:16/9}
   .people{grid-template-columns:1fr}
   .people-photo .inset{right:10px;bottom:-24px;width:32%}
@@ -365,11 +356,11 @@ footer .wrap{position:relative}
       <p class="lede">Tap a motto to jump to the dishes that go with it.</p>
     </div>
     <div class="mottos">
-      <a class="mcard" href="#menu" data-cat="drinks" data-item="Motto Green" data-order="drinks:Motto Green|breakfast:Brisket &amp; Avocado|drinks:Ginger Shot"><img src="{{IMG:m-eat}}" alt="Motto Green cold-pressed juice" loading="lazy"><div class="txt"><small>My motto today</small><strong>Eat well</strong><em>Motto Green juice, then the brisket and avocado.</em><span class="go">See dishes</span></div></a>
-      <a class="mcard" href="#menu" data-cat="drinks" data-item="Latte" data-order="drinks:Latte|breakfast:Egg &amp; Avocado Croissant"><img src="{{IMG:m-work}}" alt="A latte held over a table at Motto" loading="lazy"><div class="txt"><small>My motto today</small><strong>Get it done</strong><em>A big latte and a sunny table. You've got this.</em><span class="go">See dishes</span></div></a>
-      <a class="mcard" href="#menu" data-cat="drinks" data-item="Turkish Tea" data-order="drinks:Turkish Tea|dessert:Pistachio Cheesecake"><img src="{{IMG:m-slow}}" alt="A glass of Turkish tea" loading="lazy"><div class="txt"><small>My motto today</small><strong>Slow down</strong><em>Turkish tea and nowhere to be.</em><span class="go">See dishes</span></div></a>
-      <a class="mcard" href="#menu" data-cat="breakfast" data-item="Mediterranean Breakfast" data-order="breakfast:Mediterranean Breakfast|breakfast:Menemen|sweet:Pistachio Pancakes"><img src="{{IMG:m-catch}}" alt="Friends at a table inside Motto" loading="lazy"><div class="txt"><small>My motto today</small><strong>Make time for friends</strong><em>Plates to share and plenty to talk about.</em><span class="go">See dishes</span></div></a>
-      <a class="mcard" href="#menu" data-cat="sweet" data-item="Pistachio Pancakes" data-order="sweet:Pistachio Pancakes|drinks:Matcha Latte|dessert:Pistachio Tiramisu"><img src="{{IMG:m-treat}}" alt="Pistachio pancakes with pistachio sauce" loading="lazy"><div class="txt"><small>My motto today</small><strong>Treat myself</strong><em>The pistachio pancakes everyone photographs.</em><span class="go">See dishes</span></div></a>
+      <a class="mcard" href="#menu" data-cat="drinks" data-item="Motto Green"><img src="{{IMG:m-eat}}" alt="Motto Green cold-pressed juice" loading="lazy"><div class="txt"><small>My motto today</small><strong>Eat well</strong><em>Motto Green juice, then the brisket and avocado.</em><span class="go">See dishes</span></div></a>
+      <a class="mcard" href="#menu" data-cat="drinks" data-item="Latte"><img src="{{IMG:m-work}}" alt="A latte held over a table at Motto" loading="lazy"><div class="txt"><small>My motto today</small><strong>Get it done</strong><em>A big latte and a sunny table. You've got this.</em><span class="go">See dishes</span></div></a>
+      <a class="mcard" href="#menu" data-cat="drinks" data-item="Turkish Tea"><img src="{{IMG:m-slow}}" alt="A glass of Turkish tea" loading="lazy"><div class="txt"><small>My motto today</small><strong>Slow down</strong><em>Turkish tea and nowhere to be.</em><span class="go">See dishes</span></div></a>
+      <a class="mcard" href="#menu" data-cat="breakfast" data-item="Mediterranean Breakfast"><img src="{{IMG:m-catch}}" alt="Friends at a table inside Motto" loading="lazy"><div class="txt"><small>My motto today</small><strong>Make time for friends</strong><em>Plates to share and plenty to talk about.</em><span class="go">See dishes</span></div></a>
+      <a class="mcard" href="#menu" data-cat="sweet" data-item="Pistachio Pancakes"><img src="{{IMG:m-treat}}" alt="Pistachio pancakes with pistachio sauce" loading="lazy"><div class="txt"><small>My motto today</small><strong>Treat myself</strong><em>The pistachio pancakes everyone photographs.</em><span class="go">See dishes</span></div></a>
     </div>
   </div>
 </section>
@@ -385,7 +376,6 @@ footer .wrap{position:relative}
         <label class="toggle"><input type="checkbox" id="vegOnly"> Vegetarian only</label>
       </div>
     </div>
-    <div class="myorder" id="order" hidden aria-live="polite"></div>
     <div class="tabs" role="tablist" aria-label="Menu sections" id="tabs"></div>
     <div class="panel" id="panel" role="tabpanel">
       <figure class="panel-photo" style="margin:0"><img id="catImg" src="{{IMG:c-breakfast}}" alt="" width="1000" height="800"><figcaption id="catCap"></figcaption></figure>
@@ -643,33 +633,19 @@ tabsEl.addEventListener("keydown",function(e){
 show("breakfast");
 function tabEdges(){tabsEl.classList.toggle("more-l",tabsEl.scrollLeft>4);tabsEl.classList.toggle("more-r",tabsEl.scrollLeft+tabsEl.clientWidth<tabsEl.scrollWidth-4);}
 tabsEl.addEventListener("scroll",tabEdges,{passive:true});window.addEventListener("resize",tabEdges);tabEdges();
-/* Motto cards: show "your order" strip, the card's photo, and bring the dish into view */
-var orderEl=document.getElementById("order"),hdrH=function(){return document.getElementById("hdr").offsetHeight};
-function priceOf(cat,name){var c=MENU.filter(function(x){return x.id===cat})[0],p="";c.groups.forEach(function(g){g.items.forEach(function(it){if(it[0]===name)p=it[2]})});return p}
-function catName(cat){return MENU.filter(function(x){return x.id===cat})[0].name}
+/* Motto cards: open the matching menu section, with the card's photo and dish highlighted */
 function toDish(){
   var el=listEl.querySelector(".item.hl");if(!el)return;
   var bottomGap=(pbar&&pbar.offsetHeight&&getComputedStyle(pbar).display!=="none")?pbar.offsetHeight+16:16;
-  var r=el.getBoundingClientRect(),top=hdrH()+tabsEl.offsetHeight+12;
-  if(r.top<top||r.bottom>innerHeight-bottomGap)window.scrollBy({top:r.top-top-Math.max(0,(innerHeight-top-bottomGap-r.height)/3),behavior:"smooth"});
-}
-function pickDish(cat,name,photo,cap){
-  show(cat,name);
-  if(photo){catImg.src=photo;catImg.alt=cap;catCap.textContent=cap;}
-  [].forEach.call(orderEl.querySelectorAll(".dish"),function(b){b.setAttribute("aria-current",b.dataset.item===name)});
+  var r=el.getBoundingClientRect(),top=document.getElementById("hdr").offsetHeight+tabsEl.offsetHeight+12;
+  if(r.top<top||r.bottom>innerHeight-bottomGap)window.scrollBy({top:r.top-top-Math.max(0,(innerHeight-top-bottomGap-r.height)/3),behavior:"instant"});
 }
 [].forEach.call(document.querySelectorAll(".mcard"),function(a){
   a.addEventListener("click",function(e){
     e.preventDefault();veg.checked=false;
-    var dishes=a.dataset.order.split("|").map(function(x){var i=x.indexOf(":");return {cat:x.slice(0,i),item:x.slice(i+1)}});
-    var title=a.querySelector("strong").textContent,photo=a.querySelector("img").src;
-    orderEl.innerHTML='<p>My motto today:<strong>'+esc(title)+'</strong></p><ul>'+dishes.map(function(d){return '<li><button type="button" class="dish" data-cat="'+d.cat+'" data-item="'+esc(d.item)+'">'+esc(d.item)+'<small>'+catName(d.cat)+' · '+priceOf(d.cat,d.item)+'</small></button></li>'}).join("")+'</ul><button type="button" class="x">Clear</button>';
-    orderEl.hidden=false;document.getElementById("panel").classList.add("ordering");
-    pickDish(dishes[0].cat,dishes[0].item,photo,dishes[0].item);
-    [].forEach.call(orderEl.querySelectorAll(".dish"),function(b){b.addEventListener("click",function(){pickDish(b.dataset.cat,b.dataset.item);setTimeout(toDish,30);});});
-    orderEl.querySelector(".x").addEventListener("click",function(){orderEl.hidden=true;document.getElementById("panel").classList.remove("ordering");show(current);});
-    var y=orderEl.getBoundingClientRect().top+scrollY-hdrH()-12;
-    window.scrollTo({top:y,behavior:"instant"});
+    show(a.dataset.cat,a.dataset.item);
+    var img=a.querySelector("img");catImg.src=img.src;catImg.alt=img.alt;catCap.textContent=a.dataset.item;
+    window.scrollTo({top:tabsEl.getBoundingClientRect().top+scrollY-document.getElementById("hdr").offsetHeight-8,behavior:"instant"});
     requestAnimationFrame(toDish);
   });
 });
