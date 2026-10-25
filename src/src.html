@@ -106,6 +106,9 @@ section{position:relative}
 .toggle input::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--plate);box-shadow:0 1px 3px rgba(0,0,0,.2);transition:transform .2s}
 .toggle input:checked{background:var(--sage)}
 .toggle input:checked::after{transform:translateX(18px)}
+.tabs.more-r{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 56px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 56px),transparent)}
+.tabs.more-l{-webkit-mask-image:linear-gradient(90deg,transparent,#000 56px);mask-image:linear-gradient(90deg,transparent,#000 56px)}
+.tabs.more-l.more-r{-webkit-mask-image:linear-gradient(90deg,transparent,#000 56px,#000 calc(100% - 56px),transparent);mask-image:linear-gradient(90deg,transparent,#000 56px,#000 calc(100% - 56px),transparent)}
 .tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px 2px 14px;margin:0 -2px 22px;position:sticky;top:var(--hdr);z-index:5;background:var(--plate)}
 .tabs::-webkit-scrollbar{display:none}
 .tab{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 18px 0 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--plate);cursor:pointer;font-weight:600;font-size:.98rem;white-space:nowrap;color:var(--deep)}
@@ -121,14 +124,14 @@ section{position:relative}
 .sub-h:first-child{margin-top:0}
 .items{list-style:none;margin:0;padding:0}
 .item{display:grid;grid-template-columns:1fr auto;gap:4px 18px;padding:16px 0;border-bottom:1px solid var(--line)}
-.order{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;background:var(--mist);border-radius:var(--r);padding:14px 16px;margin:0 0 18px;scroll-margin-top:calc(var(--hdr) + 12px)}
-.order[hidden]{display:none}
-.order p{margin:0;font-size:.95rem}.order p strong{font-family:var(--serif);font-weight:400;font-size:1.25rem;margin-left:4px}
-.order ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
-.order .dish{border:1.5px solid var(--line);background:var(--plate);border-radius:99px;padding:9px 14px;font:inherit;font-size:.95rem;color:var(--deep);cursor:pointer;min-height:42px}
-.order .dish:hover,.order .dish[aria-current="true"]{border-color:var(--deep)}
-.order .dish small{color:var(--muted);margin-left:8px}
-.order .x{margin-left:auto;background:none;border:0;font:inherit;font-size:.9rem;color:var(--muted);cursor:pointer;text-decoration:underline;padding:8px}
+.myorder{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;background:var(--mist);border-radius:var(--r);padding:14px 16px;margin:0 0 18px;scroll-margin-top:calc(var(--hdr) + 12px)}
+.myorder[hidden]{display:none}
+.myorder p{margin:0;font-size:.95rem}.myorder p strong{font-family:var(--serif);font-weight:400;font-size:1.25rem;margin-left:4px}
+.myorder ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.myorder .dish{border:1.5px solid var(--line);background:var(--plate);border-radius:99px;padding:9px 14px;font:inherit;font-size:.95rem;color:var(--deep);cursor:pointer;min-height:42px}
+.myorder .dish:hover,.myorder .dish[aria-current="true"]{border-color:var(--deep)}
+.myorder .dish small{color:var(--muted);margin-left:8px}
+.myorder .x{margin-left:auto;background:none;border:0;font:inherit;font-size:.9rem;color:var(--muted);cursor:pointer;text-decoration:underline;padding:8px}
 .item.hl{background:linear-gradient(90deg,rgba(185,197,172,.35),rgba(185,197,172,0));margin:0 -12px;padding-left:12px;padding-right:12px;border-radius:8px}
 .item h4{margin:0;font-family:var(--sans);font-size:1.08rem;font-weight:600;color:var(--ink);display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .item p{grid-column:1/2;color:var(--muted);font-size:.98rem;line-height:1.45}
@@ -382,7 +385,7 @@ footer .wrap{position:relative}
         <label class="toggle"><input type="checkbox" id="vegOnly"> Vegetarian only</label>
       </div>
     </div>
-    <div class="order" id="order" hidden aria-live="polite"></div>
+    <div class="myorder" id="order" hidden aria-live="polite"></div>
     <div class="tabs" role="tablist" aria-label="Menu sections" id="tabs"></div>
     <div class="panel" id="panel" role="tabpanel">
       <figure class="panel-photo" style="margin:0"><img id="catImg" src="{{IMG:c-breakfast}}" alt="" width="1000" height="800"><figcaption id="catCap"></figcaption></figure>
@@ -638,6 +641,8 @@ tabsEl.addEventListener("keydown",function(e){
   var i=MENU.findIndex(function(c){return c.id===current});i=(i+(e.key==="ArrowRight"?1:-1)+MENU.length)%MENU.length;show(MENU[i].id);tabsEl.children[i].focus();
 });
 show("breakfast");
+function tabEdges(){tabsEl.classList.toggle("more-l",tabsEl.scrollLeft>4);tabsEl.classList.toggle("more-r",tabsEl.scrollLeft+tabsEl.clientWidth<tabsEl.scrollWidth-4);}
+tabsEl.addEventListener("scroll",tabEdges,{passive:true});window.addEventListener("resize",tabEdges);tabEdges();
 /* Motto cards: show "your order" strip, the card's photo, and bring the dish into view */
 var orderEl=document.getElementById("order"),hdrH=function(){return document.getElementById("hdr").offsetHeight};
 function priceOf(cat,name){var c=MENU.filter(function(x){return x.id===cat})[0],p="";c.groups.forEach(function(g){g.items.forEach(function(it){if(it[0]===name)p=it[2]})});return p}
