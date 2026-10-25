@@ -181,35 +181,9 @@ section{position:relative}
 .faq details p{padding:0 0 18px;color:var(--muted)}
 .book{background:var(--plate);border-radius:20px;padding:clamp(22px,3vw,36px);box-shadow:0 10px 40px rgba(63,74,65,.10)}
 .book h3{font-size:1.8rem;margin-bottom:22px}
-.lbl{display:block;font-weight:600;font-size:.95rem;margin:0 0 10px}
-.fgroup{margin-bottom:24px}
-.stepper{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:99px;overflow:hidden}
-.stepper button{width:50px;height:50px;border:0;background:transparent;font-size:1.4rem;cursor:pointer;color:var(--deep)}
-.stepper button:disabled{opacity:.3;cursor:default}
-.stepper output{min-width:96px;text-align:center;font-weight:600}
-.big-note{margin-top:10px;font-size:.95rem;color:var(--caramel)}
-.scroller{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px}
-.scroller::-webkit-scrollbar{display:none}
-.daybtn,.timebtn{border:1.5px solid var(--line);background:var(--plate);border-radius:12px;cursor:pointer;color:var(--deep);flex:none}
-.daybtn{width:68px;padding:10px 0;display:flex;flex-direction:column;align-items:center;line-height:1.2}
-.daybtn small{font-size:.8rem;color:var(--muted)}
-.daybtn b{font-size:1.25rem;font-weight:600}
-.timebtn{min-width:74px;height:46px;font-weight:600;font-variant-numeric:tabular-nums}
-.times{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
-[aria-pressed="true"].daybtn,[aria-pressed="true"].timebtn{background:var(--deep);border-color:var(--deep);color:var(--white)}
-[aria-pressed="true"].daybtn small{color:var(--awning)}
-.timebtn:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
-.book .btn-primary{width:100%;margin-top:4px}
-.book .alt{margin-top:14px;font-size:.95rem;color:var(--muted);text-align:center}
-.book .alt a{color:var(--deep);font-weight:600}
-.done{display:none;text-align:center;padding:12px 0}
-.done svg{width:64px;height:64px;margin:0 auto 14px}
-.done h3{margin-bottom:10px}
-.done p{color:var(--muted);margin-bottom:22px}
-.done .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.book.sent form{display:none}
-.book.sent .done{display:block}
-.proto{margin-top:16px;font-size:.82rem;color:var(--muted);text-align:center}
+.book-lead{color:var(--muted);margin-bottom:22px}
+.book .btn{width:100%;margin-top:10px}
+.book .alt{margin-top:16px;font-size:.95rem;color:var(--muted);text-align:center}
 
 .res-grid>*,.visit-grid>*,.people>*,.panel>*{min-width:0}
 /* Visit */
@@ -330,7 +304,7 @@ footer .wrap{position:relative}
 
 <main>
 <section class="hero" id="top">
-  <img src="{{IMG:hero}}" alt="A table at Motto: eggs benedict, brisket and avocado, pistachio pancakes, cold-pressed juice and Turkish tea" width="2000" height="1333" fetchpriority="high">
+  <img src="{{IMG:hero}}" alt="Pistachio pancakes, börek and plates ready to go out from Motto's kitchen" width="2000" height="1500" fetchpriority="high">
   <div class="wrap">
     <h1>What's your motto today?</h1>
     <p class="sub">We'll help you live it. All-day breakfast, coffee and cold-pressed juice on Queen West, made fresh every morning.</p>
@@ -356,11 +330,11 @@ footer .wrap{position:relative}
       <p class="lede">Tap a motto to jump to the dishes that go with it.</p>
     </div>
     <div class="mottos">
-      <a class="mcard" href="#menu" data-cat="drinks" data-item="Motto Green"><img src="{{IMG:m-eat}}" alt="Motto Green cold-pressed juice" loading="lazy"><div class="txt"><small>My motto today</small><strong>Eat well</strong><em>Motto Green juice, then the brisket and avocado.</em><span class="go">See dishes</span></div></a>
+      <a class="mcard" href="#menu" data-cat="breakfast" data-item="Brisket &amp; Avocado"><img src="{{IMG:m-eat}}" alt="Brisket and avocado on sourdough with scrambled eggs" loading="lazy"><div class="txt"><small>My motto today</small><strong>Eat well</strong><em>Brisket and avocado, with a cold-pressed juice.</em><span class="go">See dishes</span></div></a>
       <a class="mcard" href="#menu" data-cat="drinks" data-item="Latte"><img src="{{IMG:m-work}}" alt="A latte held over a table at Motto" loading="lazy"><div class="txt"><small>My motto today</small><strong>Get it done</strong><em>A big latte and a sunny table. You've got this.</em><span class="go">See dishes</span></div></a>
-      <a class="mcard" href="#menu" data-cat="drinks" data-item="Turkish Tea"><img src="{{IMG:m-slow}}" alt="A glass of Turkish tea" loading="lazy"><div class="txt"><small>My motto today</small><strong>Slow down</strong><em>Turkish tea and nowhere to be.</em><span class="go">See dishes</span></div></a>
+      <a class="mcard" href="#menu" data-cat="drinks" data-item="Turkish Coffee"><img src="{{IMG:m-slow}}" alt="Turkish coffee next to the Motto drinks menu" loading="lazy"><div class="txt"><small>My motto today</small><strong>Slow down</strong><em>Turkish coffee and nowhere to be.</em><span class="go">See dishes</span></div></a>
       <a class="mcard" href="#menu" data-cat="breakfast" data-item="Mediterranean Breakfast"><img src="{{IMG:m-catch}}" alt="Friends at a table inside Motto" loading="lazy"><div class="txt"><small>My motto today</small><strong>Make time for friends</strong><em>Plates to share and plenty to talk about.</em><span class="go">See dishes</span></div></a>
-      <a class="mcard" href="#menu" data-cat="sweet" data-item="Pistachio Pancakes"><img src="{{IMG:m-treat}}" alt="Pistachio pancakes with pistachio sauce" loading="lazy"><div class="txt"><small>My motto today</small><strong>Treat myself</strong><em>The pistachio pancakes everyone photographs.</em><span class="go">See dishes</span></div></a>
+      <a class="mcard" href="#menu" data-cat="dessert" data-item="Pistachio Cheesecake"><img src="{{IMG:m-treat}}" alt="Pistachio cheesecake with chocolate drizzle" loading="lazy"><div class="txt"><small>My motto today</small><strong>Treat myself</strong><em>Pistachio cheesecake. You've earned it.</em><span class="go">See dishes</span></div></a>
     </div>
   </div>
 </section>
@@ -428,9 +402,9 @@ footer .wrap{position:relative}
     <div class="box">
       <p class="kicker" style="color:var(--awning)">Bring your people</p>
       <h2 id="groups-h">The group chat finally made it.</h2>
-      <p>Plates made to share, long tables and a 62-seat patio when the sun's out. Book up to 8 online. Nine or more? Call us and we'll set it up.</p>
-      <div class="chips"><span>{{ICON:line:groups}} Tables for 2 to 8</span><span>{{ICON:line:patio}} Patio in season</span></div>
-      <a class="btn btn-light" href="#reserve" data-party="6">Book for the group</a>
+      <p>Plates made to share, long tables and a 62-seat patio when the sun's out. Coming with a crowd? Call ahead and we'll set it up.</p>
+      <div class="chips"><span>{{ICON:line:groups}} Long tables for groups</span><span>{{ICON:line:patio}} Patio in season</span></div>
+      <a class="btn btn-light" href="#reserve">Call to book</a>
     </div>
   </div>
 </section>
@@ -441,9 +415,8 @@ footer .wrap{position:relative}
       <p class="kicker">Book a table</p>
       <h2 id="reserve-h">Save us a seat.</h2>
       <ul class="points">
-        <li>{{ICON:plate:reserve}}<span>Book online for up to 8. We hold your table for 15 minutes.</span></li>
-        <li>{{ICON:plate:groups}}<span>Nine or more, call <a href="tel:+14376961903">437-696-1903</a> and we'll plan it with you.</span></li>
-        <li>{{ICON:plate:coffee}}<span>Walk-ins are always welcome when there's room.</span></li>
+        <li>{{ICON:plate:reserve}}<span>We take table bookings by phone or email.</span></li>
+        <li>{{ICON:plate:groups}}<span>Bringing a big group? Call ahead and we'll plan it with you.</span></li>
       </ul>
       <div class="faq">
         <details><summary>Do you have vegetarian options?</summary><p>Plenty. Use the "Vegetarian only" switch on the menu, and tell your server about any allergies or swaps.</p></details>
@@ -452,38 +425,11 @@ footer .wrap{position:relative}
     </div>
 
     <div class="book" id="book">
-      <form id="bookForm" novalidate>
-        <h3>Book a table</h3>
-        <div class="fgroup">
-          <span class="lbl" id="partyL">Guests</span>
-          <div class="stepper" role="group" aria-labelledby="partyL">
-            <button type="button" id="pMinus" aria-label="Fewer guests">−</button>
-            <output id="party" aria-live="polite">2 guests</output>
-            <button type="button" id="pPlus" aria-label="More guests">+</button>
-          </div>
-          <p class="big-note" id="bigNote" hidden>For 9 or more, please call <a href="tel:+14376961903">437-696-1903</a> and we'll set it up.</p>
-        </div>
-        <div class="fgroup">
-          <span class="lbl">Day</span>
-          <div class="scroller" id="days"></div>
-        </div>
-        <div class="fgroup">
-          <span class="lbl">Time</span>
-          <div class="times" id="times"></div>
-        </div>
-        <button class="btn btn-primary" type="submit" id="bookBtn">Book table</button>
-        <p class="alt">Prefer to talk? <a href="tel:+14376961903">Call 437-696-1903</a></p>
-      </form>
-      <div class="done" id="done" role="status" aria-live="polite">
-        {{ICON:plate:reserve}}
-        <h3>See you soon.</h3>
-        <p id="doneText"></p>
-        <div class="row">
-          <button class="btn btn-primary" type="button" id="ics">Add to calendar</button>
-          <button class="btn btn-line" type="button" id="again">Change booking</button>
-        </div>
-      </div>
-      <p class="proto">Prototype: nothing is sent yet. The live site connects this to Motto's booking system.</p>
+      <h3>Book a table</h3>
+      <p class="book-lead">Give us a call or send an email, and we'll save you a table.</p>
+      <a class="btn btn-primary" href="tel:+14376961903">Call 437-696-1903</a>
+      <a class="btn btn-line" href="mailto:mottotoronto@gmail.com?subject=Table%20booking">Email mottotoronto@gmail.com</a>
+      <p class="alt">Open daily 8:30 to 5:30, Fridays and Saturdays until 6.</p>
     </div>
   </div>
 </section>
@@ -556,17 +502,17 @@ var MENU=[
   ["Egg & Beef Bacon Croissant","Butter croissant, two scrambled eggs, beef bacon, arugula, parmesan, roasted potatoes","20",""],
   ["Egg & Avocado Croissant","Toasted butter croissant, smashed avocado, poached egg, arugula, parmesan, roasted potatoes","18","V"],
   ["Egg & Salmon Croissant","Butter croissant, two scrambled eggs, smoked salmon, arugula, parmesan, roasted potatoes","20",""]]}]},
- {id:"omelettes",name:"Omelettes",icon:"omelette",img:"c-omelettes",cap:"Omelette with salad and potatoes",note:"Three eggs, with salad or roasted potatoes and house-made white or brown bread.",groups:[{items:[
+ {id:"omelettes",name:"Omelettes",icon:"omelette",img:"c-omelettes",cap:"Omelette with salad and toast",note:"Three eggs, with salad or roasted potatoes and house-made white or brown bread.",groups:[{items:[
   ["Motto Brisket","Slow-cooked beef brisket, mozzarella","20","F"],
   ["Mushroom Melt","Mushrooms, caramelized onions, mozzarella","18","V"],
   ["Beef Bacon","Beef bacon, mozzarella","20",""],
   ["Cheesy","Mozzarella, feta","17","V"]]}]},
- {id:"sweet",name:"Sweet starts",icon:"pancakes",img:"c-sweet",cap:"Pistachio Pancakes",note:"Pancakes and French toast, all day.",groups:[{items:[
+ {id:"sweet",name:"Sweet starts",icon:"pancakes",img:"c-sweet",cap:"Chocolate Pancakes",note:"Pancakes and French toast, all day.",groups:[{items:[
   ["Pistachio Pancakes","Pistachio sauce, mascarpone cream, crushed pistachios","18","FV"],
   ["Chocolate Pancakes","Chocolate sauce, mascarpone cream, fresh strawberries","17","V"],
   ["Berry Pancakes","Maple and mixed berry sauce, mascarpone cream","17","V"],
   ["French Toast","Brioche, maple and mixed berry sauce, mascarpone cream, powdered sugar","18","V"]]}]},
- {id:"sandwiches",name:"Sandwiches",icon:"sandwiches",img:"c-sandwiches",cap:"Salmon Burrata Croissant",note:"",groups:[{items:[
+ {id:"sandwiches",name:"Sandwiches",icon:"sandwiches",img:"c-sandwiches",cap:"Smoked Turkey sandwich",note:"",groups:[{items:[
   ["Salmon Burrata Croissant","Smoked salmon, dill, red onion, arugula, crispy capers, burrata","18",""],
   ["Montreal Smoked Beef","Crispy beef bacon crumbs, Havarti, mustard, mayo, honey, pickle, red onion","18",""],
   ["Smoked Turkey","Muhammara, pesto, soy sauce, romaine, red onion","17",""],
@@ -574,7 +520,7 @@ var MENU=[
   ["Fresh Mozzarella Croissant","Butter croissant, tomato, mozzarella, fresh basil","14","V"],
   ["Vegetarian","Toasted bread, tomato sauce, yogurt-mint mayo, roasted pepper, zucchini, eggplant, parmesan","14","V"],
   ["Börek","Pastry filled with feta and mozzarella, fresh parsley, dill","12","V"]]}]},
- {id:"dessert",name:"Dessert",icon:"dessert",img:"c-dessert",cap:"Berry and pistachio cheesecake",note:"Baked in house.",groups:[{items:[
+ {id:"dessert",name:"Dessert",icon:"dessert",img:"c-dessert",cap:"Pistachio Cheesecake",note:"Baked in house.",groups:[{items:[
   ["Pistachio Cheesecake","","12","F"],
   ["San Sebastián Cheesecake","","12",""],
   ["Berry Cheesecake","","12",""],
@@ -583,7 +529,7 @@ var MENU=[
   ["Classic Tiramisu","","9",""],
   ["Brownie Dulce de Leche","","11",""],
   ["Brownie Cherry","","10",""]]}]},
- {id:"drinks",name:"Drinks",icon:"coffee",img:"c-drinks",cap:"Motto Beet, cold-pressed",note:"Oat, almond, soy or lactose-free milk +0.75. Flavour shot +0.75.",groups:[
+ {id:"drinks",name:"Drinks",icon:"coffee",img:"c-drinks",cap:"Motto Orange, fresh-squeezed",note:"Oat, almond, soy or lactose-free milk +0.75. Flavour shot +0.75.",groups:[
   {h:"Coffee",items:[["Latte","","5",""],["Cappuccino","","5",""],["Flat White","","4",""],["Cortado","","4",""],["Americano","","4",""],["Espresso","","4",""],["Macchiato","","4",""],["Mocha","","6",""]]},
   {h:"Lattes & more",items:[["Matcha Latte","","6","F"],["Hojicha Latte","","6",""],["Chai Latte","","6",""],["London Fog","","6",""],["Hot Chocolate","","6",""],["Turkish Coffee","","6",""]]},
   {h:"Tea",items:[["Turkish Tea","","3","F"],["Canadian Maple","Rooibos, cocoa shells, maple, licorice root, safflower","4.5",""],["Ctrl+Alt+Del","Lemongrass, ginger, lemon peel, cinnamon, cranberry, apple, hibiscus, cardamom","4.5",""],["Verbena Blues","Lemongrass, ginger, lemon verbena, hibiscus, butterfly pea flower","4.5",""],["Organic Fields of Green","Organic green tea","4.5",""],["Organic Peppermint","","4.5",""]]},
@@ -681,52 +627,6 @@ var open=now.min>=510&&now.min<closeMin(now.d);
 document.getElementById("heroOpen").textContent=open?("Open now until "+fmt(closeMin(now.d))):(now.min<510?"Opens today at 8:30":"Closed now, opens tomorrow at 8:30");
 if(!open)document.getElementById("heroDot").classList.add("closed");
 var tr=document.querySelector('#hours tr[data-d="'+now.d+'"]');if(tr)tr.classList.add("today");
-
-/* ---------- Booking ---------- */
-var party=2,dayIdx=0,time=null;
-var pOut=document.getElementById("party"),pMinus=document.getElementById("pMinus"),pPlus=document.getElementById("pPlus"),bigNote=document.getElementById("bigNote"),bookBtn=document.getElementById("bookBtn");
-function setParty(n){party=Math.max(1,Math.min(9,n));pOut.textContent=party===9?"9+ guests":party+(party===1?" guest":" guests");pMinus.disabled=party<=1;pPlus.disabled=party>=9;bigNote.hidden=party<9;bookBtn.disabled=party>=9;bookBtn.style.opacity=party>=9?.4:1;}
-pMinus.onclick=function(){setParty(party-1)};pPlus.onclick=function(){setParty(party+1)};setParty(2);
-[].forEach.call(document.querySelectorAll("[data-party]"),function(a){a.addEventListener("click",function(){setParty(+a.dataset.party)});});
-var DAYS=[];var base=new Date(Date.UTC(now.y,now.m-1,now.day));
-for(var i=0;i<14;i++){var dt=new Date(base.getTime()+i*864e5);DAYS.push({date:dt,wd:dt.getUTCDay()});}
-var daysEl=document.getElementById("days"),timesEl=document.getElementById("times");
-var WD=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],MO=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],WDL=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-DAYS.forEach(function(d,i){var b=document.createElement("button");b.type="button";b.className="daybtn";b.setAttribute("aria-pressed",i===0);
-  b.innerHTML="<small>"+(i===0?"Today":i===1?"Tmrw":WD[d.wd])+"</small><b>"+d.date.getUTCDate()+"</b><small>"+MO[d.date.getUTCMonth()]+"</small>";
-  b.setAttribute("aria-label",WDL[d.wd]+" "+MO[d.date.getUTCMonth()]+" "+d.date.getUTCDate());
-  b.onclick=function(){dayIdx=i;[].forEach.call(daysEl.children,function(x,j){x.setAttribute("aria-pressed",j===i)});renderTimes();};daysEl.appendChild(b);});
-function renderTimes(){
-  var d=DAYS[dayIdx],last=closeMin(d.wd)-60,h="",first=null;
-  timesEl.innerHTML="";
-  for(var m=510;m<=last;m+=30){
-    var past=dayIdx===0&&m<now.min+30;
-    var b=document.createElement("button");b.type="button";b.className="timebtn";b.textContent=fmt(m);b.dataset.m=m;b.disabled=past;b.setAttribute("aria-pressed","false");
-    if(past)b.setAttribute("aria-label",fmt(m)+", not available");
-    b.onclick=function(){time=+this.dataset.m;[].forEach.call(timesEl.children,function(x){x.setAttribute("aria-pressed",+x.dataset.m===time)});};
-    timesEl.appendChild(b);if(!past&&first===null)first=m;
-  }
-  if(first===null){timesEl.innerHTML='<p class="empty" style="grid-column:1/-1">No more tables today. Pick another day.</p>';time=null;return;}
-  if(time===null||time<first||time>last)time=first;
-  [].forEach.call(timesEl.children,function(x){x.setAttribute("aria-pressed",+x.dataset.m===time)});
-}
-if(DAYS.length&&(function(){var d=DAYS[0];return now.min+30>closeMin(d.wd)-60})()){dayIdx=1;daysEl.children[0].setAttribute("aria-pressed","false");daysEl.children[1].setAttribute("aria-pressed","true");}
-renderTimes();
-var book=document.getElementById("book");
-document.getElementById("bookForm").addEventListener("submit",function(e){
-  e.preventDefault();if(party>=9||time===null)return;
-  var d=DAYS[dayIdx];
-  document.getElementById("doneText").textContent="Table for "+party+", "+WDL[d.wd]+" "+MO[d.date.getUTCMonth()]+" "+d.date.getUTCDate()+" at "+fmt(time)+". We hold tables for 15 minutes.";
-  book.classList.add("sent");
-});
-document.getElementById("again").onclick=function(){book.classList.remove("sent")};
-document.getElementById("ics").onclick=function(){
-  var d=DAYS[dayIdx],y=d.date.getUTCFullYear(),mo=d.date.getUTCMonth()+1,da=d.date.getUTCDate();
-  function p(n){return(n<10?"0":"")+n}
-  function stamp(m){return y+p(mo)+p(da)+"T"+p(Math.floor(m/60))+p(m%60)+"00"}
-  var ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Motto//Booking//EN","BEGIN:VEVENT","UID:"+Date.now()+"@motto","DTSTAMP:"+new Date().toISOString().replace(/[-:]/g,"").slice(0,15)+"Z","DTSTART;TZID=America/Toronto:"+stamp(time),"DTEND;TZID=America/Toronto:"+stamp(time+90),"SUMMARY:Motto, table for "+party,"LOCATION:Motto\\, 764 Queen St W\\, Toronto","DESCRIPTION:Running late? Call 437-696-1903.","END:VEVENT","END:VCALENDAR"].join("\r\n");
-  var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([ics],{type:"text/calendar"}));a.download="motto-booking.ics";document.body.appendChild(a);a.click();a.remove();
-};
 
 /* ---------- Reviews arrows ---------- */
 var q=document.getElementById("quotes");
