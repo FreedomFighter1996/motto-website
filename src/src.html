@@ -72,7 +72,8 @@ p{margin:0}
 .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,28,24,.55) 0,rgba(24,28,24,0) 160px),linear-gradient(90deg,rgba(24,28,24,.78) 0%,rgba(24,28,24,.5) 38%,rgba(24,28,24,0) 70%),linear-gradient(0deg,rgba(24,28,24,.55) 0%,rgba(24,28,24,0) 45%)}
 .hero .wrap{position:relative;z-index:1;width:100%;padding-top:140px;padding-bottom:clamp(48px,8vh,96px)}
-.hero h1{font-size:clamp(3rem,7.4vw,6.2rem);line-height:.98;max-width:12ch}
+.hero h1{font-size:clamp(3rem,7.4vw,6.2rem);line-height:.98;max-width:14ch}
+.hero h1 .motto-word{font-size:1.3em;line-height:.9}
 .hero .sub{font-size:clamp(1.1rem,1.6vw,1.3rem);margin-top:22px;max-width:30ch;opacity:.95}
 .hero .ctas{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
 .hero .facts{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:34px;font-size:.98rem}
@@ -310,7 +311,7 @@ footer .wrap{position:relative}
 <section class="hero" id="top">
   <img src="{{IMG:hero}}" alt="Pistachio pancakes, börek and plates ready to go out from Motto's kitchen" width="2000" height="1500" fetchpriority="high">
   <div class="wrap">
-    <h1>What's your motto today?</h1>
+    <h1>What's your <span class="motto-word">motto</span> today?</h1>
     <p class="sub">We'll help you live it. All-day breakfast, coffee and cold-pressed juice on Queen West, made fresh every morning.</p>
     <div class="ctas">
       <a class="btn btn-light" href="#reserve">Book a table</a>
@@ -444,13 +445,8 @@ footer .wrap{position:relative}
       <p class="kicker">Visit</p>
       <h2 id="visit-h">Come by. We open at 8:30.</h2>
       <table class="hours" id="hours" aria-label="Opening hours">
-        <tr data-d="1"><td>Monday</td><td>8:30 – 5:30</td></tr>
-        <tr data-d="2"><td>Tuesday</td><td>8:30 – 5:30</td></tr>
-        <tr data-d="3"><td>Wednesday</td><td>8:30 – 5:30</td></tr>
-        <tr data-d="4"><td>Thursday</td><td>8:30 – 5:30</td></tr>
-        <tr data-d="5"><td>Friday</td><td>8:30 – 6:00</td></tr>
-        <tr data-d="6"><td>Saturday</td><td>8:30 – 6:00</td></tr>
-        <tr data-d="0"><td>Sunday</td><td>8:30 – 5:30</td></tr>
+        <tr data-days="0 1 2 3 4"><td>Sunday – Thursday</td><td>8:30 – 5:30</td></tr>
+        <tr data-days="5 6"><td>Friday – Saturday</td><td>8:30 – 6:00</td></tr>
       </table>
       <p class="addr">764 Queen St W, Toronto</p>
       <p style="color:var(--muted)">A 3-minute walk from Trinity Bellwoods. The 501 Queen streetcar stops at Shaw.</p>
@@ -630,7 +626,7 @@ var now=torontoNow();
 var open=now.min>=510&&now.min<closeMin(now.d);
 document.getElementById("heroOpen").textContent=open?("Open now until "+fmt(closeMin(now.d))):(now.min<510?"Opens today at 8:30":"Closed now, opens tomorrow at 8:30");
 if(!open)document.getElementById("heroDot").classList.add("closed");
-var tr=document.querySelector('#hours tr[data-d="'+now.d+'"]');if(tr)tr.classList.add("today");
+var tr=document.querySelector('#hours tr[data-days~="'+now.d+'"]');if(tr)tr.classList.add("today");
 
 /* ---------- Reviews arrows ---------- */
 var q=document.getElementById("quotes");
