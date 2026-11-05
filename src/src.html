@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Motto · All-day breakfast on Queen West, Toronto</title>
-<meta name="description" content="All-day breakfast café at 764 Queen St W, near Trinity Bellwoods. Pistachio pancakes, cold-pressed juice, matcha and Turkish tea. Book a table or drop in.">
+<meta name="description" content="All-day breakfast café at 764 Queen St W, near Trinity Bellwoods. Pistachio pancakes, cold-pressed juice, matcha and Turkish tea. Book a table or drop in. Catering and private events too.">
 <meta name="theme-color" content="#3F4A41">
 <link rel="icon" type="image/svg+xml" href="{{FAVSVG}}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{FAVPNG:32}}">
@@ -55,7 +55,8 @@ p{margin:0}
 .brand{display:block;color:inherit;margin-right:auto}
 .brand svg{height:26px;width:auto;display:block}
 .nav{display:flex;align-items:center;gap:28px}
-.nav a{text-decoration:none;font-weight:500;font-size:1rem;padding:6px 0;border-bottom:2px solid transparent}
+.nav a{text-decoration:none;font-weight:500;font-size:1rem;padding:6px 0;border-bottom:2px solid transparent;white-space:nowrap}
+@media (max-width:1100px){.nav{gap:18px}.hdr .wrap{gap:18px}.nav a{font-size:.95rem}}
 .nav a:hover,.nav a.on{border-bottom-color:currentColor}
 .hdr .btn{min-height:44px;padding:0 20px;font-size:.95rem}
 .hdr:not(.solid) .btn-primary{background:var(--white);color:var(--deep)}
@@ -185,7 +186,27 @@ section{position:relative}
 .book .btn{width:100%;margin-top:10px}
 .book .alt{margin-top:16px;font-size:.95rem;color:var(--muted);text-align:center}
 
-.res-grid>*,.visit-grid>*,.people>*,.panel>*{min-width:0}
+/* Host with us: catering + private events */
+.host{background:var(--white)}
+.host-head{max-width:720px;margin-bottom:clamp(32px,4vw,48px)}
+.host-head .lede{margin-top:18px}
+.host-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3vw,32px)}
+.hcard{background:var(--plate);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 0 var(--line)}
+.hcard img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.hcard .body{padding:clamp(22px,3vw,32px);display:flex;flex-direction:column;gap:14px;flex:1}
+.hcard h3{color:var(--deep)}
+.hcard p{color:var(--muted)}
+.hcard ul{list-style:none;margin:4px 0 8px;padding:0;border-top:1px solid var(--line)}
+.hcard li{padding:11px 0;border-bottom:1px solid var(--line);font-size:.98rem}
+.hcard .btn{margin-top:auto;align-self:flex-start}
+.host-foot{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,56px);align-items:center;margin-top:clamp(36px,5vw,56px);padding-top:clamp(28px,4vw,40px);border-top:1px solid var(--line)}
+.host-foot blockquote{margin:0;font-family:var(--serif);font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.3;color:var(--deep)}
+.host-foot figcaption{margin-top:10px;font-size:.92rem;color:var(--muted)}
+.host-foot figure{margin:0}
+.host-ask p{color:var(--muted);margin-bottom:14px}
+.host-ask .btns{display:flex;flex-wrap:wrap;gap:10px}
+
+.res-grid>*,.visit-grid>*,.host-grid>*,.host-foot>*,.people>*,.panel>*{min-width:0}
 /* Visit */
 .visit-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,64px);align-items:stretch}
 .hours{width:100%;border-collapse:collapse;margin:26px 0}
@@ -250,7 +271,7 @@ footer .wrap{position:relative}
   .groups>img{position:relative;height:300px}
   .groups::after{display:none}
   .groups .wrap{padding-top:36px;padding-bottom:48px}
-  .res-grid,.visit-grid{grid-template-columns:1fr}
+  .res-grid,.visit-grid,.host-grid,.host-foot{grid-template-columns:1fr}
   .map{min-height:300px}
   .f-cols{grid-template-columns:1fr 1fr}
   .quotes{grid-auto-columns:min(440px,84%)}
@@ -291,6 +312,7 @@ footer .wrap{position:relative}
     <nav class="nav" aria-label="Main">
       <a href="#menu">Menu</a>
       <a href="#people">Reviews</a>
+      <a href="#host">Catering &amp; events</a>
       <a href="#visit">Visit</a>
       <a class="order" href="https://www.ubereats.com/ca/store/motto-breakfast-&amp;-brunch/2pEw_GOYU5atxrU9nsKbUA" target="_blank" rel="noopener">Order delivery ↗</a>
     </nav>
@@ -300,6 +322,7 @@ footer .wrap{position:relative}
   <div class="drawer" id="drawer">
     <a href="#menu">Menu</a>
     <a href="#people">Reviews</a>
+    <a href="#host">Catering &amp; private events</a>
     <a href="#reserve">Book a table</a>
     <a href="#visit">Hours &amp; directions</a>
     <a href="https://www.ubereats.com/ca/store/motto-breakfast-&amp;-brunch/2pEw_GOYU5atxrU9nsKbUA" target="_blank" rel="noopener">Order delivery ↗</a>
@@ -409,6 +432,43 @@ footer .wrap{position:relative}
       <p>Plates made to share, long tables and a 62-seat patio when the sun's out. Coming with a crowd? Call ahead and we'll set it up.</p>
       <div class="chips"><span>{{ICON:line:groups}} Long tables for groups</span><span>{{ICON:line:patio}} Patio in season</span></div>
       <a class="btn btn-light" href="#reserve">Call to book</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec host" id="host" aria-labelledby="host-h">
+  <div class="wrap">
+    <div class="host-head">
+      <p class="kicker">Catering &amp; private events</p>
+      <h2 id="host-h">Your event, made by our team.</h2>
+      <p class="lede">We cook for offices, meetings and celebrations, and we open up the café for private gatherings. Tell us what you're planning and we'll shape it with you.</p>
+    </div>
+    <div class="host-grid">
+      <article class="hcard">
+        <img src="{{IMG:ev-catering}}" alt="Rows of kisir and beet salad cups on a Motto catering table" width="960" height="720" loading="lazy">
+        <div class="body">
+          <h3>Catering</h3>
+          <p>Spreads made by hand in our kitchen, for your office, your meeting or your party.</p>
+          <ul><li>Office breakfasts and meetings</li><li>Celebrations and get-togethers</li><li>Corporate gatherings</li></ul>
+          <a class="btn btn-primary" href="mailto:mottotoronto@gmail.com?subject=Catering%20inquiry">Ask about catering</a>
+        </div>
+      </article>
+      <article class="hcard">
+        <img src="{{IMG:ev-space}}" alt="A Motto team member handing a drink across the counter during an event at the café" width="960" height="720" loading="lazy">
+        <div class="body">
+          <h3>Host at Motto</h3>
+          <p>Book our space on Queen West for a private event, with our team looking after your guests.</p>
+          <ul><li>Private events and parties</li><li>Team and corporate gatherings</li><li>Community meet-ups</li></ul>
+          <a class="btn btn-primary" href="mailto:mottotoronto@gmail.com?subject=Private%20event%20inquiry">Ask about the space</a>
+        </div>
+      </article>
+    </div>
+    <div class="host-foot">
+      <figure><blockquote>“The most beautiful and delicious spread.”</blockquote><figcaption>West Queen West BIA, after hosting its Meet &amp; Greet at Motto, July 2026</figcaption></figure>
+      <div class="host-ask">
+        <p>Send us your date, how many guests, and what you have in mind. We'll get back to you with options.</p>
+        <div class="btns"><a class="btn btn-line" href="tel:+14163687429">Call 416-368-7429</a></div>
+      </div>
     </div>
   </div>
 </section>
