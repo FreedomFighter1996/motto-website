@@ -497,7 +497,7 @@ var TZ="America/Toronto";
 
 /* ---------- Menu data: Motto's printed menu, October 2026 ---------- */
 var MENU=[
- {id:"breakfast",name:"Breakfast plates",icon:"breakfast",img:"c-breakfast",cap:"Mediterranean Breakfast",note:"All day, every day, 8:30 to close.",groups:[{items:[
+ {id:"breakfast",name:"Breakfast Plates",icon:"breakfast",img:"c-breakfast",cap:"Mediterranean Breakfast",note:"All day, every day, 8:30 to close.",groups:[{items:[
   ["Northern Breakfast","Two fried eggs, sausage, beef bacon, roasted potatoes, three pancakes with dulce de leche, fresh fruit","24",""],
   ["Mediterranean Breakfast","Two fried eggs, sausage, mücver (zucchini fritter), olives, muhammara, dulce de leche, toast, fresh salad with feta","26","F"],
   ["Eggs Benedict","English muffin, herbed cream cheese, smoked salmon, poached eggs, hollandaise, roasted potatoes, fresh salad","24","F"],
@@ -511,7 +511,7 @@ var MENU=[
   ["Mushroom Melt","Mushrooms, caramelized onions, mozzarella","18","V"],
   ["Beef Bacon","Beef bacon, mozzarella","20",""],
   ["Cheesy","Mozzarella, feta","17","V"]]}]},
- {id:"sweet",name:"Sweet starts",icon:"pancakes",img:"c-sweet",cap:"Chocolate Pancakes",note:"Pancakes and French toast, all day.",groups:[{items:[
+ {id:"sweet",name:"Sweet Starts",icon:"pancakes",img:"c-sweet",cap:"Chocolate Pancakes",note:"Pancakes and French toast, all day.",groups:[{items:[
   ["Pistachio Pancakes","Pistachio sauce, mascarpone cream, crushed pistachios","18","FV"],
   ["Chocolate Pancakes","Chocolate sauce, mascarpone cream, fresh strawberries","17","V"],
   ["Berry Pancakes","Maple and mixed berry sauce, mascarpone cream","17","V"],
@@ -535,10 +535,10 @@ var MENU=[
   ["Brownie Cherry","","10",""]]}]},
  {id:"drinks",name:"Drinks",icon:"coffee",img:"c-drinks",cap:"Motto Orange, fresh-squeezed",note:"Oat, almond, soy or lactose-free milk +0.75. Flavour shot +0.75.",groups:[
   {h:"Coffee",items:[["Latte","","5",""],["Cappuccino","","5",""],["Flat White","","4",""],["Cortado","","4",""],["Americano","","4",""],["Espresso","","4",""],["Macchiato","","4",""],["Mocha","","6",""]]},
-  {h:"Lattes & more",items:[["Matcha Latte","","6","F"],["Organic Hojicha Latte","","6",""],["Chai Latte","","6",""],["London Fog","","6",""],["Hot Chocolate","","6",""],["Turkish Coffee","Served with a gluten-free walnut cookie","6",""]]},
+  {h:"Lattes & More",items:[["Matcha Latte","","6","F"],["Organic Hojicha Latte","","6",""],["Chai Latte","","6",""],["London Fog","","6",""],["Hot Chocolate","","6",""],["Turkish Coffee","Served with a gluten-free walnut cookie","6",""]]},
   {h:"Tea",n:"All our teas are caffeine-free except Turkish tea and Organic Fields of Green (green tea).",items:[["Turkish Tea","","3","F"],["Canadian Maple","Rooibos, cocoa shells, maple, licorice root, safflower","4.5",""],["Ctrl+Alt+Del","Lemongrass, ginger, lemon peel, cinnamon, cranberry, apple, hibiscus, cardamom","4.5",""],["Verbena Blues","Lemongrass, ginger, lemon verbena, hibiscus, butterfly pea flower","4.5",""],["Organic Fields of Green","Organic green tea","4.5",""],["Organic Peppermint","","4.5",""]]},
-  {h:"Cold-pressed juice",items:[["Motto Green","Kale, celery, mint, pineapple, lemon, green apple, ginger","12",""],["Motto Turmeric","Carrot, lemon, celery, apple, pear, ginger, turmeric","12",""],["Motto Beet","Carrot, beet, apple, ginger, lemon","12",""],["Motto Orange","","9",""],["Motto Pear","","9",""]]},
-  {h:"Health boosters",items:[["Turmeric Shot","","4",""],["Ginger Shot","","4",""]]}],foot:"Flavour shots: vanilla, caramel, hazelnut, pumpkin spice, maple, lavender, strawberry, pistachio, smoked marshmallow."}
+  {h:"Cold-Pressed Juice",items:[["Motto Green","Kale, celery, mint, pineapple, lemon, green apple, ginger","12",""],["Motto Turmeric","Carrot, lemon, celery, apple, pear, ginger, turmeric","12",""],["Motto Beet","Carrot, beet, apple, ginger, lemon","12",""],["Motto Orange","","9",""],["Motto Pear","","9",""]]},
+  {h:"Health Boosters",items:[["Turmeric Shot","","4",""],["Ginger Shot","","4",""]]}],foot:"Flavour shots: vanilla, caramel, hazelnut, pumpkin spice, maple, lavender, strawberry, pistachio, smoked marshmallow."}
 ];
 /* Drinks are all vegetarian */
 MENU[5].groups.forEach(function(g){g.items.forEach(function(it){if(it[3].indexOf("V")<0)it[3]+="V";});});
@@ -571,7 +571,7 @@ function show(id,hl){
     h+="</ul>";
   });
   if(c.foot&&shown)h+='<p class="cat-note" style="margin-top:18px">'+esc(c.foot)+"</p>";
-  if(!shown)h+='<p class="empty">No vegetarian dishes in this section. Try Sweet starts or Drinks.</p>';
+  if(!shown)h+='<p class="empty">No vegetarian dishes in this section. Try Sweet Starts or Drinks.</p>';
   listEl.innerHTML=h;
   tabsEl.parentNode.querySelector("#panel").setAttribute("aria-labelledby","tab-"+id);
 }
