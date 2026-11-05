@@ -130,6 +130,7 @@ section{position:relative}
 .item p{grid-column:1/2;color:var(--muted);font-size:.98rem;line-height:1.45}
 .price{font-weight:600;font-variant-numeric:tabular-nums;color:var(--deep);font-size:1.05rem}
 .tag{font-size:.72rem;font-weight:700;letter-spacing:.04em;padding:3px 8px;border-radius:99px;background:var(--mist);color:var(--sage6)}
+.tag.vegan{background:#DDE6D3;color:#3F4A41}
 .tag.fav{background:#F3E6D6;color:#7D5A36}
 .menu-foot{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;margin-top:28px;color:var(--muted);font-size:.95rem}
 .menu-foot a{color:var(--deep);font-weight:600}
@@ -363,6 +364,7 @@ footer .wrap{position:relative}
     <div class="menu-foot">
       <span><span class="tag fav">Guest favourite</span> most mentioned in reviews</span>
       <span><span class="tag">V</span> vegetarian</span>
+      <span><span class="tag vegan">Vegan</span> plant-based</span>
       <span>Allergies or swaps? Tell your server, the kitchen is happy to help.</span>
       <a href="https://www.ubereats.com/ca/store/motto-breakfast-&amp;-brunch/2pEw_GOYU5atxrU9nsKbUA" target="_blank" rel="noopener">Order delivery on Uber Eats ↗</a>
     </div>
@@ -424,7 +426,7 @@ footer .wrap{position:relative}
         <li>{{ICON:plate:groups}}<span>Bringing a big group? Call ahead and we'll plan it with you.</span></li>
       </ul>
       <div class="faq">
-        <details><summary>Do you have vegetarian or vegan options?</summary><p>Yes, we have both. Use the "Vegetarian only" switch on the menu, and ask your server which dishes are vegan or can be made vegan. Let us know about any allergies too.</p></details>
+        <details><summary>Do you have vegetarian or vegan options?</summary><p>Yes, we have both. Use the "Vegetarian only" switch on the menu, look for the Vegan tag (our Vegan Breakfast Plate is fully plant-based), and ask your server which other dishes can be made vegan. Let us know about any allergies too.</p></details>
         <details><summary>Can I order for pickup or delivery?</summary><p>Yes. Our whole menu is available for delivery on <a href="https://www.ubereats.com/ca/store/motto-breakfast-&amp;-brunch/2pEw_GOYU5atxrU9nsKbUA" target="_blank" rel="noopener">Uber Eats</a>. For takeout, just order at the counter.</p></details>
       </div>
     </div>
@@ -495,6 +497,7 @@ var TZ="America/Toronto";
 var MENU=[
  {id:"breakfast",name:"Breakfast Plates",icon:"breakfast",img:"c-breakfast",cap:"Mediterranean Breakfast",note:"All day, every day, 8:30 to close.",groups:[{items:[
   ["Northern Breakfast","Two fried eggs, sausage, beef bacon, roasted potatoes, three pancakes with dulce de leche, fresh fruit","24",""],
+  ["Vegan Breakfast Plate","Toasted sourdough with smashed avocado and roasted vegetables, baked potatoes, fresh salad, fruit","22","VG"],
   ["Mediterranean Breakfast","Two fried eggs, sausage, mücver (zucchini fritter), olives, muhammara, dulce de leche, toast, fresh salad with feta","26","F"],
   ["Eggs Benedict","English muffin, herbed cream cheese, smoked salmon, poached eggs, hollandaise, roasted potatoes, fresh salad","24","F"],
   ["Brisket & Avocado","Sourdough, smashed avocado, brisket, two scrambled eggs, tomatoes, chive potatoes, fresh salad","25",""],
@@ -531,6 +534,7 @@ var MENU=[
   ["Brownie Cherry","","10",""]]}]},
  {id:"drinks",name:"Drinks",icon:"coffee",img:"c-drinks",cap:"Motto Orange, fresh-squeezed",note:"Oat, almond, soy or lactose-free milk +0.75. Flavour shot +0.75.",groups:[
   {h:"Coffee",items:[["Latte","","5",""],["Cappuccino","","5",""],["Flat White","","4",""],["Cortado","","4",""],["Americano","","4",""],["Espresso","","4",""],["Macchiato","","4",""],["Mocha","","6",""]]},
+  {h:"Iced Coffee",items:[["Iced Latte","","5.25",""],["Iced Cappuccino","","5.25",""],["Iced Americano","","4.5",""],["Iced Espresso","","4",""],["Iced Mocha","","6.25",""],["Iced Matcha Latte","","6.25",""],["Iced Chai Latte","","6.25",""]]},
   {h:"Lattes & More",items:[["Matcha Latte","","6","F"],["Organic Hojicha Latte","","6",""],["Chai Latte","","6",""],["London Fog","","6",""],["Hot Chocolate","","6",""],["Turkish Coffee","Served with a gluten-free walnut cookie","6",""]]},
   {h:"Tea",n:"All our teas are caffeine-free except Turkish tea and Organic Fields of Green (green tea).",items:[["Turkish Tea","","3","F"],["Canadian Maple","Rooibos, cocoa shells, maple, licorice root, safflower","4.5",""],["Ctrl+Alt+Del","Lemongrass, ginger, lemon peel, cinnamon, cranberry, apple, hibiscus, cardamom","4.5",""],["Verbena Blues","Lemongrass, ginger, lemon verbena, hibiscus, butterfly pea flower","4.5",""],["Organic Fields of Green","Organic green tea","4.5",""],["Organic Peppermint","","4.5",""]]},
   {h:"Cold-Pressed Juice",items:[["Motto Green","Kale, celery, mint, pineapple, lemon, green apple, ginger","12",""],["Motto Turmeric","Carrot, lemon, celery, apple, pear, ginger, turmeric","12",""],["Motto Beet","Carrot, beet, apple, ginger, lemon","12",""],["Motto Orange","","9",""],["Motto Pear","","9",""]]},
@@ -561,7 +565,7 @@ function show(id,hl){
     if(g.h)h+='<h3 class="sub-h">'+esc(g.h)+"</h3>";if(g.n)h+='<p class="cat-note">'+esc(g.n)+"</p>";
     h+='<ul class="items">';
     rows.forEach(function(it){shown++;
-      var tags="";if(it[3].indexOf("F")>=0)tags+='<span class="tag fav">Guest favourite</span>';if(it[3].indexOf("V")>=0&&c.id!=="drinks")tags+='<span class="tag" title="Vegetarian">V</span>';
+      var tags="";if(it[3].indexOf("F")>=0)tags+='<span class="tag fav">Guest favourite</span>';if(it[3].indexOf("G")>=0)tags+='<span class="tag vegan" title="Vegan">Vegan</span>';else if(it[3].indexOf("V")>=0&&c.id!=="drinks")tags+='<span class="tag" title="Vegetarian">V</span>';
       h+='<li class="item'+(hl===it[0]?" hl":"")+'"><h4>'+esc(it[0])+" "+tags+'</h4><span class="price">'+it[2]+"</span>"+(it[1]?"<p>"+esc(it[1])+"</p>":"")+"</li>";
     });
     h+="</ul>";
