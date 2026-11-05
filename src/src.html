@@ -193,8 +193,7 @@ section{position:relative}
 .hours{width:100%;border-collapse:collapse;margin:26px 0}
 .hours td{padding:10px 0;border-bottom:1px solid var(--line)}
 .hours td:last-child{text-align:right;font-variant-numeric:tabular-nums}
-.hours tr.today td{font-weight:700;color:var(--deep)}
-.hours tr.today td:first-child::after{content:" · today";font-weight:500;color:var(--caramel)}
+.open-status{display:flex;align-items:center;gap:8px;margin:22px 0 -10px;font-weight:500;color:var(--deep)}
 .addr{font-size:1.15rem;font-weight:600;color:var(--deep)}
 .visit-ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
 .map{border-radius:var(--r);overflow:hidden;min-height:420px;background:var(--mist);position:relative}
@@ -446,9 +445,10 @@ footer .wrap{position:relative}
     <div>
       <p class="kicker">Visit</p>
       <h2 id="visit-h">Come by. We open at 8:30.</h2>
+      <p class="open-status"><i class="dot" id="visitDot"></i><span id="visitOpen">Open every day from 8:30 am</span></p>
       <table class="hours" id="hours" aria-label="Opening hours">
-        <tr data-days="0 1 2 3 4"><td>Sunday – Thursday</td><td>8:30 – 5:30</td></tr>
-        <tr data-days="5 6"><td>Friday – Saturday</td><td>8:30 – 6:00</td></tr>
+        <tr><td>Sunday to Thursday</td><td>8:30 am – 5:30 pm</td></tr>
+        <tr><td>Friday &amp; Saturday</td><td>8:30 am – 6:00 pm</td></tr>
       </table>
       <p class="addr">764 Queen St W, Toronto</p>
       <p style="color:var(--muted)">A 3-minute walk from Trinity Bellwoods. The 501 Queen streetcar stops at Shaw.</p>
@@ -630,7 +630,8 @@ var now=torontoNow();
 var open=now.min>=510&&now.min<closeMin(now.d);
 document.getElementById("heroOpen").textContent=open?("Open now until "+fmt(closeMin(now.d))):(now.min<510?"Opens today at 8:30":"Closed now, opens tomorrow at 8:30");
 if(!open)document.getElementById("heroDot").classList.add("closed");
-var tr=document.querySelector('#hours tr[data-days~="'+now.d+'"]');if(tr)tr.classList.add("today");
+document.getElementById("visitOpen").textContent=document.getElementById("heroOpen").textContent;
+if(!open)document.getElementById("visitDot").classList.add("closed");
 
 /* ---------- Reviews arrows ---------- */
 var q=document.getElementById("quotes");
